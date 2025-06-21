@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btSoftBody.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btSoftBodyConcaveCollisionAlgorithm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btSoftBodyHelpers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btSoftBodyRigidBodyCollisionConfiguration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btSoftRigidCollisionAlgorithm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btSoftRigidDynamicsWorld.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btSoftMultiBodyDynamicsWorld.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btSoftSoftCollisionAlgorithm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btDefaultSoftBodySolver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btDeformableBackwardEulerObjective.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btDeformableBodySolver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btDeformableMultiBodyConstraintSolver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btDeformableContactProjection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btDeformableMultiBodyDynamicsWorld.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btDeformableContactConstraint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\poly34.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\BulletReducedDeformableBody\btReducedDeformableBody.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\BulletReducedDeformableBody\btReducedDeformableBodyHelpers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\BulletReducedDeformableBody\btReducedDeformableBodySolver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\BulletReducedDeformableBody\btReducedDeformableContactConstraint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btSoftBody.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btSoftBodyData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btSoftBodyConcaveCollisionAlgorithm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btSoftBodyHelpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btSoftBodyRigidBodyCollisionConfiguration.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btSoftRigidCollisionAlgorithm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btSoftRigidDynamicsWorld.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btSoftMultiBodyDynamicsWorld.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btSoftSoftCollisionAlgorithm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btSparseSDF.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btSoftBodySolvers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btDefaultSoftBodySolver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btCGProjection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btConjugateGradient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btConjugateResidual.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btDeformableGravityForce.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btDeformableMassSpringForce.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btDeformableCorotatedForce.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btDeformableNeoHookeanForce.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btDeformableLinearElasticityForce.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btDeformableLagrangianForce.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btPreconditioner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btDeformableBackwardEulerObjective.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btDeformableBodySolver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btDeformableMultiBodyConstraintSolver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btDeformableContactProjection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btDeformableMultiBodyDynamicsWorld.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btDeformableContactConstraint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btKrylovSolver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\poly34.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\btSoftBodySolverVertexBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\BulletReducedDeformableBody\btReducedDeformableBody.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\BulletReducedDeformableBody\btReducedDeformableBodyHelpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\BulletReducedDeformableBody\btReducedDeformableBodySolver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\BulletReducedDeformableBody\btReducedDeformableContactConstraint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletSoftBody\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{6E77623E-44AB-3BFC-912B-E6C8FCBCC19A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{B0C7DDF2-DCF3-3306-847D-9BA642CA193D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,7 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.30/Modules/FindOpenGL.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/FindPackageMessage.cmake
+C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/CMakeFiles/cmake.verify_globs
+C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/ext/bullet/BulletConfig.cmake.in
+C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/ext/bullet/CMakeLists.txt

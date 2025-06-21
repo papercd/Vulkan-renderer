@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E4DCE4FA-EF6D-3DA7-8A12-CB78A184D14C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>App_PhysicsServer_SharedMemory_GUI</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\SharedMemory\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">App_PhysicsServer_SharedMemory_GUI.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">App_PhysicsServer_SharedMemory_GUI</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\SharedMemory\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">App_PhysicsServer_SharedMemory_GUI.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">App_PhysicsServer_SharedMemory_GUI</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\SharedMemory\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">App_PhysicsServer_SharedMemory_GUI.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">App_PhysicsServer_SharedMemory_GUI</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\SharedMemory\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">App_PhysicsServer_SharedMemory_GUI.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">App_PhysicsServer_SharedMemory_GUI</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4244;4267</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WIN64;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;B3_USE_STANDALONE_EXAMPLE;GLEW_STATIC;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WIN64;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;B3_USE_STANDALONE_EXAMPLE;GLEW_STATIC;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\..\..\lib\Debug\BulletSoftBody_Debug.lib;..\..\..\..\lib\Debug\Bullet3Common_Debug.lib;..\..\..\..\lib\Debug\BulletWorldImporter_Debug.lib;..\..\..\..\lib\Debug\BulletFileLoader_Debug.lib;..\..\..\..\lib\Debug\BulletInverseDynamicsUtils_Debug.lib;..\..\..\..\lib\Debug\BulletInverseDynamics_Debug.lib;..\..\..\..\lib\Debug\BulletDynamics_Debug.lib;..\..\..\..\lib\Debug\BulletCollision_Debug.lib;..\..\..\..\lib\Debug\LinearMath_Debug.lib;..\..\..\..\lib\Debug\BussIK_Debug.lib;..\..\..\..\lib\Debug\BulletSoftBody_Debug.lib;..\..\..\..\lib\Debug\Bullet3Common_Debug.lib;..\..\..\..\lib\Debug\BulletWorldImporter_Debug.lib;..\..\..\..\lib\Debug\BulletInverseDynamicsUtils_Debug.lib;..\..\..\..\lib\Debug\BulletInverseDynamics_Debug.lib;..\..\..\..\lib\Debug\BulletDynamics_Debug.lib;..\..\..\..\lib\Debug\BulletCollision_Debug.lib;..\..\..\..\lib\Debug\LinearMath_Debug.lib;..\..\..\..\lib\Debug\BussIK_Debug.lib;..\..\..\..\lib\Debug\OpenGLWindow_Debug.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/SharedMemory/Debug/App_PhysicsServer_SharedMemory_GUI.lib</ImportLibrary>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/SharedMemory/Debug/App_PhysicsServer_SharedMemory_GUI.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DisableSpecificWarnings>4244;4267</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;NDEBUG;_WIN64;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;B3_USE_STANDALONE_EXAMPLE;GLEW_STATIC;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;NDEBUG;_WIN64;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;B3_USE_STANDALONE_EXAMPLE;GLEW_STATIC;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\..\..\lib\Release\BulletSoftBody.lib;..\..\..\..\lib\Release\Bullet3Common.lib;..\..\..\..\lib\Release\BulletWorldImporter.lib;..\..\..\..\lib\Release\BulletFileLoader.lib;..\..\..\..\lib\Release\BulletInverseDynamicsUtils.lib;..\..\..\..\lib\Release\BulletInverseDynamics.lib;..\..\..\..\lib\Release\BulletDynamics.lib;..\..\..\..\lib\Release\BulletCollision.lib;..\..\..\..\lib\Release\LinearMath.lib;..\..\..\..\lib\Release\BussIK.lib;..\..\..\..\lib\Release\BulletSoftBody.lib;..\..\..\..\lib\Release\Bullet3Common.lib;..\..\..\..\lib\Release\BulletWorldImporter.lib;..\..\..\..\lib\Release\BulletInverseDynamicsUtils.lib;..\..\..\..\lib\Release\BulletInverseDynamics.lib;..\..\..\..\lib\Release\BulletDynamics.lib;..\..\..\..\lib\Release\BulletCollision.lib;..\..\..\..\lib\Release\LinearMath.lib;..\..\..\..\lib\Release\BussIK.lib;..\..\..\..\lib\Release\OpenGLWindow.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/SharedMemory/Release/App_PhysicsServer_SharedMemory_GUI.lib</ImportLibrary>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/SharedMemory/Release/App_PhysicsServer_SharedMemory_GUI.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DisableSpecificWarnings>4244;4267</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;NDEBUG;_WIN64;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;B3_USE_STANDALONE_EXAMPLE;GLEW_STATIC;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;NDEBUG;_WIN64;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;B3_USE_STANDALONE_EXAMPLE;GLEW_STATIC;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\..\..\lib\MinSizeRel\BulletSoftBody_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\Bullet3Common_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\BulletWorldImporter_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\BulletFileLoader_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\BulletInverseDynamicsUtils_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\BulletInverseDynamics_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\BulletDynamics_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\BulletCollision_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\LinearMath_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\BussIK_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\BulletSoftBody_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\Bullet3Common_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\BulletWorldImporter_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\BulletInverseDynamicsUtils_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\BulletInverseDynamics_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\BulletDynamics_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\BulletCollision_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\LinearMath_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\BussIK_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\OpenGLWindow_MinsizeRel.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/SharedMemory/MinSizeRel/App_PhysicsServer_SharedMemory_GUI.lib</ImportLibrary>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/SharedMemory/MinSizeRel/App_PhysicsServer_SharedMemory_GUI.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4244;4267</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;NDEBUG;_WIN64;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;B3_USE_STANDALONE_EXAMPLE;GLEW_STATIC;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;NDEBUG;_WIN64;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;B3_USE_STANDALONE_EXAMPLE;GLEW_STATIC;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\..\..\lib\RelWithDebInfo\BulletSoftBody_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\Bullet3Common_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\BulletWorldImporter_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\BulletFileLoader_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\BulletInverseDynamicsUtils_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\BulletInverseDynamics_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\BulletDynamics_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\BulletCollision_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\LinearMath_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\BussIK_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\BulletSoftBody_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\Bullet3Common_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\BulletWorldImporter_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\BulletInverseDynamicsUtils_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\BulletInverseDynamics_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\BulletDynamics_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\BulletCollision_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\LinearMath_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\BussIK_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\OpenGLWindow_RelWithDebugInfo.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/SharedMemory/RelWithDebInfo/App_PhysicsServer_SharedMemory_GUI.lib</ImportLibrary>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/SharedMemory/RelWithDebInfo/App_PhysicsServer_SharedMemory_GUI.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/ext/bullet/examples/SharedMemory/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/FORYOUCOM/Desktop/vulkan/my_engine -BC:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build --check-stamp-file C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/SharedMemory/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\SharedMemory\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/ext/bullet/examples/SharedMemory/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/FORYOUCOM/Desktop/vulkan/my_engine -BC:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build --check-stamp-file C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/SharedMemory/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\SharedMemory\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/ext/bullet/examples/SharedMemory/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/FORYOUCOM/Desktop/vulkan/my_engine -BC:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build --check-stamp-file C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/SharedMemory/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\SharedMemory\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/ext/bullet/examples/SharedMemory/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/FORYOUCOM/Desktop/vulkan/my_engine -BC:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build --check-stamp-file C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/SharedMemory/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\SharedMemory\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\plugins\collisionFilterPlugin\collisionFilterPlugin.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\plugins\collisionFilterPlugin\collisionFilterPlugin.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\plugins\pdControlPlugin\pdControlPlugin.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\plugins\pdControlPlugin\pdControlPlugin.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\b3RobotSimulatorClientAPI_NoDirect.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\b3RobotSimulatorClientAPI_NoDirect.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\IKTrajectoryHelper.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\IKTrajectoryHelper.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsClient.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsClientSharedMemory.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsClientExample.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsServerExample.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsServerExampleBullet2.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsServerSharedMemory.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsServerSharedMemory.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsServer.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsServer.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsClientC_API.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\GraphicsClientExample.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\GraphicsClientExample.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\GraphicsServerExample.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\GraphicsServerExample.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\GraphicsSharedMemoryBlock.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\GraphicsSharedMemoryCommands.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\GraphicsSharedMemoryPublic.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\SharedMemoryCommands.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\SharedMemoryPublic.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PosixSharedMemory.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\Win32SharedMemory.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\InProcessMemory.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsDirect.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsDirect.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsDirectC_API.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsDirectC_API.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsLoopBack.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsLoopBack.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsLoopBackC_API.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsLoopBackC_API.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsClientSharedMemory_C_API.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsClientSharedMemory_C_API.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsClientSharedMemory2_C_API.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsClientSharedMemory2_C_API.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsClientSharedMemory2.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsClientSharedMemory2.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\SharedMemoryCommandProcessor.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\SharedMemoryCommandProcessor.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsServerCommandProcessor.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsServerCommandProcessor.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\plugins\tinyRendererPlugin\tinyRendererPlugin.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\plugins\tinyRendererPlugin\TinyRendererVisualShapeConverter.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\b3PluginManager.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\TinyRenderer\geometry.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\TinyRenderer\model.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\TinyRenderer\tgaimage.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\TinyRenderer\our_gl.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\TinyRenderer\TinyRenderer.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\OpenGLWindow\SimpleCamera.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\OpenGLWindow\SimpleCamera.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\ConvertRigidBodies2MultiBody.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\MultiBodyCreationInterface.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\MyMultiBodyCreator.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\MyMultiBodyCreator.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\BulletUrdfImporter.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\BulletUrdfImporter.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\UrdfParser.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\urdfStringSplit.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\UrdfParser.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\URDF2Bullet.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\URDF2Bullet.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportMJCFDemo\BulletMJCFImporter.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportMJCFDemo\BulletMJCFImporter.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Utils\b3ResourcePath.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Utils\b3Clock.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Utils\RobotLoggingUtil.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Utils\RobotLoggingUtil.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Utils\ChromeTraceUtil.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Utils\ChromeTraceUtil.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\URDFImporterInterface.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\URDFJointTypes.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportObjDemo\Wavefront2GLInstanceGraphicsShape.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportObjDemo\LoadMeshFromObj.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportSTLDemo\ImportSTLSetup.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportSTLDemo\LoadMeshFromSTL.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportColladaDemo\LoadMeshFromCollada.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportColladaDemo\ColladaGraphicsInstance.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\tinyxml2\tinyxml2.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportMeshUtility\b3ImportMeshUtility.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\stb_image\stb_image.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiThreading\b3ThreadSupportInterface.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiThreading\b3ThreadSupportInterface.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\StandaloneMain\main_opengl_single_example.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExampleBrowser\OpenGLGuiHelper.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExampleBrowser\GL_ShapeDrawer.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExampleBrowser\CollisionShape2TriangleMesh.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiThreading\b3Win32ThreadSupport.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiThreading\b3Win32ThreadSupport.h" />
+    <ResourceCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\build3\bullet.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ZERO_CHECK.vcxproj">
+      <Project>{907AF7CA-BFD5-3B58-A10E-8278F31BADC1}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\src\Bullet3Common\Bullet3Common.vcxproj">
+      <Project>{3D46428E-8DEC-31E4-AF5F-FB93CEF4F5AB}</Project>
+      <Name>Bullet3Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\src\BulletCollision\BulletCollision.vcxproj">
+      <Project>{AD2FC0CA-562C-3FBA-960C-930E81C581F7}</Project>
+      <Name>BulletCollision</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\src\BulletDynamics\BulletDynamics.vcxproj">
+      <Project>{53E37909-0559-32CD-ADAD-68E833E9A025}</Project>
+      <Name>BulletDynamics</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\Extras\Serialize\BulletFileLoader\BulletFileLoader.vcxproj">
+      <Project>{47740567-E10D-3EA3-AA0C-EA6FCB3C2ACF}</Project>
+      <Name>BulletFileLoader</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\src\BulletInverseDynamics\BulletInverseDynamics.vcxproj">
+      <Project>{F485449F-04D0-3C45-92BC-54CDBB0B8581}</Project>
+      <Name>BulletInverseDynamics</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\Extras\InverseDynamics\BulletInverseDynamicsUtils.vcxproj">
+      <Project>{61FAD4C8-ADE1-3F7D-97AA-E786B835C7F2}</Project>
+      <Name>BulletInverseDynamicsUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\src\BulletSoftBody\BulletSoftBody.vcxproj">
+      <Project>{507EA3FC-5F82-354F-A49E-7E2A8F5D6D15}</Project>
+      <Name>BulletSoftBody</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\Extras\Serialize\BulletWorldImporter\BulletWorldImporter.vcxproj">
+      <Project>{0CF95A0C-EFD5-39F2-8814-DA1597A5D9C7}</Project>
+      <Name>BulletWorldImporter</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\ThirdPartyLibs\BussIK\BussIK.vcxproj">
+      <Project>{BD6879BD-EFAA-3DAA-8BAB-A0C2A8D89640}</Project>
+      <Name>BussIK</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\src\LinearMath\LinearMath.vcxproj">
+      <Project>{B6B1C4E1-7F54-3E99-A3FF-76029CF16622}</Project>
+      <Name>LinearMath</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\OpenGLWindow\OpenGLWindow.vcxproj">
+      <Project>{428BDA90-7C15-324C-86A2-D130A8EDF6B7}</Project>
+      <Name>OpenGLWindow</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

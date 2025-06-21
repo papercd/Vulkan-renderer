@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\Bullet3Geometry\b3ConvexHullComputer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\Bullet3Geometry\b3GeometryUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\Bullet3Geometry\b3AabbUtil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\Bullet3Geometry\b3ConvexHullComputer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\Bullet3Geometry\b3GeometryUtil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\Bullet3Geometry\b3GrahamScan2dConvexHull.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\Bullet3Geometry\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{6E77623E-44AB-3BFC-912B-E6C8FCBCC19A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{B0C7DDF2-DCF3-3306-847D-9BA642CA193D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\bestfitobb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\ConvexBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\cd_wavefront.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\fitsphere.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\meshvolume.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\raytri.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\vlookup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\bestfit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\cd_hull.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\ConvexDecomposition.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\concavity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\float_math.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\planetri.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\splitplane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\ConvexDecomposition.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\cd_vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\concavity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\bestfitobb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\ConvexBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\cd_wavefront.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\fitsphere.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\meshvolume.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\raytri.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\vlookup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\bestfit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\cd_hull.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\ConvexDecomposition\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{6E77623E-44AB-3BFC-912B-E6C8FCBCC19A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{B0C7DDF2-DCF3-3306-847D-9BA642CA193D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

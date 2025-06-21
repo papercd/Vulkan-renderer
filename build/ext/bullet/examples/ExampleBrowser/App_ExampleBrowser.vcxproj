@@ -1,0 +1,752 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F2A4AEBC-5C13-3BEA-AE66-D12ED5869F70}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>App_ExampleBrowser</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\ExampleBrowser\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">App_ExampleBrowser.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">App_ExampleBrowser</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\ExampleBrowser\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">App_ExampleBrowser.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">App_ExampleBrowser</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\ExampleBrowser\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">App_ExampleBrowser.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">App_ExampleBrowser</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\ExampleBrowser\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">App_ExampleBrowser.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">App_ExampleBrowser</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExampleBrowser\.;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4244;4267</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WIN64;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;GLEW_STATIC;INCLUDE_CLOTH_DEMOS;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WIN64;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;GLEW_STATIC;INCLUDE_CLOTH_DEMOS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExampleBrowser\.;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExampleBrowser\.;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_directory C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/ext/bullet/data C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/data
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\..\..\..\lib\Debug\BulletExampleBrowserLib_Debug.lib;..\..\..\..\lib\Debug\Bullet3Common_Debug.lib;..\..\..\..\lib\Debug\BulletSoftBody_Debug.lib;..\..\..\..\lib\Debug\BulletDynamics_Debug.lib;..\..\..\..\lib\Debug\BulletCollision_Debug.lib;..\..\..\..\lib\Debug\BulletInverseDynamicsUtils_Debug.lib;..\..\..\..\lib\Debug\BulletInverseDynamics_Debug.lib;..\..\..\..\lib\Debug\LinearMath_Debug.lib;..\..\..\..\lib\Debug\OpenGLWindow_Debug.lib;..\..\..\..\lib\Debug\gwen_Debug.lib;..\..\..\..\lib\Debug\BussIK_Debug.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/ExampleBrowser/Debug/App_ExampleBrowser.lib</ImportLibrary>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/ExampleBrowser/Debug/App_ExampleBrowser.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExampleBrowser\.;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DisableSpecificWarnings>4244;4267</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;NDEBUG;_WIN64;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;GLEW_STATIC;INCLUDE_CLOTH_DEMOS;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;NDEBUG;_WIN64;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;GLEW_STATIC;INCLUDE_CLOTH_DEMOS;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExampleBrowser\.;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExampleBrowser\.;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_directory C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/ext/bullet/data C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/data
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\..\..\..\lib\Release\BulletExampleBrowserLib.lib;..\..\..\..\lib\Release\Bullet3Common.lib;..\..\..\..\lib\Release\BulletSoftBody.lib;..\..\..\..\lib\Release\BulletDynamics.lib;..\..\..\..\lib\Release\BulletCollision.lib;..\..\..\..\lib\Release\BulletInverseDynamicsUtils.lib;..\..\..\..\lib\Release\BulletInverseDynamics.lib;..\..\..\..\lib\Release\LinearMath.lib;..\..\..\..\lib\Release\OpenGLWindow.lib;..\..\..\..\lib\Release\gwen.lib;..\..\..\..\lib\Release\BussIK.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/ExampleBrowser/Release/App_ExampleBrowser.lib</ImportLibrary>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/ExampleBrowser/Release/App_ExampleBrowser.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExampleBrowser\.;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DisableSpecificWarnings>4244;4267</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;NDEBUG;_WIN64;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;GLEW_STATIC;INCLUDE_CLOTH_DEMOS;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;NDEBUG;_WIN64;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;GLEW_STATIC;INCLUDE_CLOTH_DEMOS;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExampleBrowser\.;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExampleBrowser\.;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_directory C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/ext/bullet/data C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/data
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\..\..\..\lib\MinSizeRel\BulletExampleBrowserLib_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\Bullet3Common_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\BulletSoftBody_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\BulletDynamics_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\BulletCollision_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\BulletInverseDynamicsUtils_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\BulletInverseDynamics_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\LinearMath_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\OpenGLWindow_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\gwen_MinsizeRel.lib;..\..\..\..\lib\MinSizeRel\BussIK_MinsizeRel.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/ExampleBrowser/MinSizeRel/App_ExampleBrowser.lib</ImportLibrary>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/ExampleBrowser/MinSizeRel/App_ExampleBrowser.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExampleBrowser\.;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4244;4267</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;NDEBUG;_WIN64;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;GLEW_STATIC;INCLUDE_CLOTH_DEMOS;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;NDEBUG;_WIN64;USE_GRAPHICAL_BENCHMARK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;GLEW_STATIC;INCLUDE_CLOTH_DEMOS;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExampleBrowser\.;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExampleBrowser\.;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\glad;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_directory C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/ext/bullet/data C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/data
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\..\..\..\lib\RelWithDebInfo\BulletExampleBrowserLib_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\Bullet3Common_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\BulletSoftBody_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\BulletDynamics_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\BulletCollision_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\BulletInverseDynamicsUtils_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\BulletInverseDynamics_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\LinearMath_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\OpenGLWindow_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\gwen_RelWithDebugInfo.lib;..\..\..\..\lib\RelWithDebInfo\BussIK_RelWithDebugInfo.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/ExampleBrowser/RelWithDebInfo/App_ExampleBrowser.lib</ImportLibrary>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/ExampleBrowser/RelWithDebInfo/App_ExampleBrowser.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExampleBrowser\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/ext/bullet/examples/ExampleBrowser/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/FORYOUCOM/Desktop/vulkan/my_engine -BC:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build --check-stamp-file C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/ExampleBrowser/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\ExampleBrowser\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/ext/bullet/examples/ExampleBrowser/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/FORYOUCOM/Desktop/vulkan/my_engine -BC:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build --check-stamp-file C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/ExampleBrowser/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\ExampleBrowser\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/ext/bullet/examples/ExampleBrowser/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/FORYOUCOM/Desktop/vulkan/my_engine -BC:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build --check-stamp-file C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/ExampleBrowser/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\ExampleBrowser\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/ext/bullet/examples/ExampleBrowser/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/FORYOUCOM/Desktop/vulkan/my_engine -BC:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build --check-stamp-file C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/examples/ExampleBrowser/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\ExampleBrowser\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExampleBrowser\main.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExampleBrowser\ExampleEntries.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExampleBrowser\ExampleEntries.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\Chain.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\Chain.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\Bridge.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\Bridge.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\RigidBodyFromObj.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\RigidBodyFromObj.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\SimpleBox.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\SimpleBox.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\MultipleBoxes.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\MultipleBoxes.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\CompoundBoxes.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\CompoundBoxes.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\SimpleCloth.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\SimpleCloth.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\SimpleJoint.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\SimpleJoint.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\NewtonsCradle.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\NewtonsCradle.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\InclinedPlane.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\InclinedPlane.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\MultiPendulum.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\MultiPendulum.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\BulletRobotics\FixJointBoxes.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\BulletRobotics\BoxStack.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\BulletRobotics\JointLimit.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\TinyRenderer\geometry.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\TinyRenderer\model.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\TinyRenderer\tgaimage.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\TinyRenderer\our_gl.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\TinyRenderer\TinyRenderer.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\plugins\collisionFilterPlugin\collisionFilterPlugin.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\plugins\collisionFilterPlugin\collisionFilterPlugin.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\plugins\pdControlPlugin\pdControlPlugin.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\plugins\pdControlPlugin\pdControlPlugin.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\plugins\tinyRendererPlugin\tinyRendererPlugin.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\plugins\tinyRendererPlugin\TinyRendererVisualShapeConverter.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\IKTrajectoryHelper.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\IKTrajectoryHelper.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsServer.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsClientSharedMemory.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsClientSharedMemory_C_API.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsClient.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsClientC_API.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\GraphicsServerExample.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\GraphicsClientExample.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\RemoteGUIHelper.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\GraphicsServerExample.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\GraphicsClientExample.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\RemoteGUIHelper.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\GraphicsSharedMemoryCommands.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\GraphicsSharedMemoryPublic.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsServerExample.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsServerExampleBullet2.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsClientExample.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PosixSharedMemory.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\Win32SharedMemory.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\InProcessMemory.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsServerSharedMemory.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsDirect.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsDirect.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsDirectC_API.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsDirectC_API.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\SharedMemoryInProcessPhysicsC_API.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsLoopBack.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsLoopBack.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsLoopBackC_API.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsLoopBackC_API.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsServerCommandProcessor.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\PhysicsServerCommandProcessor.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\SharedMemoryCommands.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\SharedMemoryPublic.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\b3PluginManager.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\b3RobotSimulatorClientAPI_NoGUI.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\b3RobotSimulatorClientAPI_NoGUI.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\b3RobotSimulatorClientAPI_NoDirect.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SharedMemory\b3RobotSimulatorClientAPI_NoDirect.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RobotSimulator\b3RobotSimulatorClientAPI.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RobotSimulator\b3RobotSimulatorClientAPI.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\BasicDemo\BasicExample.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\BasicDemo\BasicExample.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\InverseDynamics\InverseDynamicsExample.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\InverseDynamics\InverseDynamicsExample.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\InverseKinematics\InverseKinematicsExample.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\InverseKinematics\InverseKinematicsExample.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ForkLift\ForkLiftDemo.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ForkLift\ForkLiftDemo.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiThreadedDemo\MultiThreadedDemo.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiThreadedDemo\MultiThreadedDemo.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiThreadedDemo\CommonRigidBodyMTBase.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiThreadedDemo\CommonRigidBodyMTBase.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Heightfield\HeightfieldExample.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Heightfield\HeightfieldExample.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Tutorial\Tutorial.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Tutorial\Tutorial.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Tutorial\Dof6ConstraintTutorial.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Tutorial\Dof6ConstraintTutorial.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Evolution\NN3DWalkers.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Evolution\NN3DWalkers.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Evolution\NN3DWalkersTimeWarpBase.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\NewtonsRopeCradle.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExtendedTutorials\NewtonsRopeCradle.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Collision\CollisionSdkC_Api.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Collision\CollisionSdkC_Api.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Collision\CollisionTutorialBullet2.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Collision\CollisionTutorialBullet2.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Collision\Internal\Bullet2CollisionSdk.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Collision\Internal\Bullet2CollisionSdk.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Collision\Internal\CollisionSdkInterface.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Collision\Internal\RealTimeBullet3CollisionSdk.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Collision\Internal\RealTimeBullet3CollisionSdk.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\GyroscopicDemo\GyroscopicSetup.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\GyroscopicDemo\GyroscopicSetup.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Planar2D\Planar2D.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Planar2D\Planar2D.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RollingFrictionDemo\RollingFrictionDemo.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RollingFrictionDemo\RollingFrictionDemo.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\FractureDemo\FractureDemo.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\FractureDemo\btFractureBody.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\FractureDemo\btFractureDynamicsWorld.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\FractureDemo\FractureDemo.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\FractureDemo\btFractureBody.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\FractureDemo\btFractureDynamicsWorld.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DynamicControlDemo\MotorDemo.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DynamicControlDemo\MotorDemo.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiThreading\MultiThreadingExample.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiThreading\b3PosixThreadSupport.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiThreading\b3Win32ThreadSupport.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiThreading\b3ThreadSupportInterface.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RenderingExamples\TinyRendererSetup.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RenderingExamples\TimeSeriesCanvas.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RenderingExamples\TimeSeriesCanvas.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RenderingExamples\TimeSeriesFontData.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RenderingExamples\TimeSeriesFontData.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RenderingExamples\DynamicTexturedCubeDemo.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RenderingExamples\DynamicTexturedCubeDemo.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RenderingExamples\TinyVRGui.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RenderingExamples\TinyVRGui.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RoboticsLearning\GripperGraspExample.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RoboticsLearning\GripperGraspExample.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RoboticsLearning\R2D2GraspExample.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RoboticsLearning\R2D2GraspExample.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RoboticsLearning\KukaGraspExample.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RoboticsLearning\KukaGraspExample.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RenderingExamples\CoordinateSystemDemo.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RenderingExamples\CoordinateSystemDemo.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RenderingExamples\RaytracerSetup.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RenderingExamples\RaytracerSetup.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RenderingExamples\RenderInstancingDemo.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RenderingExamples\RenderInstancingDemo.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RenderingExamples\TimeSeriesExample.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Benchmarks\BenchmarkDemo.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Benchmarks\BenchmarkDemo.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Benchmarks\landscapeData.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Benchmarks\TaruData.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Raycast\RaytestDemo.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportBsp\BspConverter.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportBullet\SerializeSetup.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportBullet\SerializeSetup.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportMeshUtility\b3ImportMeshUtility.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportMeshUtility\b3ImportMeshUtility.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\Serialize\BulletWorldImporter\btWorldImporter.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\Serialize\BulletWorldImporter\btMultiBodyWorldImporter.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\Serialize\BulletWorldImporter\btBulletWorldImporter.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\Serialize\BulletFileLoader\bChunk.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\Serialize\BulletFileLoader\bFile.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\Serialize\BulletFileLoader\bDNA.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\Extras\Serialize\BulletFileLoader\btBulletFile.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportBsp\BspLoader.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportBsp\ImportBspExample.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportColladaDemo\btMatrix4x4.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportColladaDemo\ColladaGraphicsInstance.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportColladaDemo\ImportColladaSetup.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportColladaDemo\LoadMeshFromCollada.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportObjDemo\ImportObjExample.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportObjDemo\LoadMeshFromObj.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportObjDemo\Wavefront2GLInstanceGraphicsShape.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportSTLDemo\ImportSTLSetup.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportSTLDemo\LoadMeshFromSTL.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\ConvertRigidBodies2MultiBody.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\ImportURDFSetup.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\URDF2Bullet.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\urdf_samples.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportMJCFDemo\BulletMJCFImporter.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportMJCFDemo\BulletMJCFImporter.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportMJCFDemo\ImportMJCFSetup.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportMJCFDemo\ImportMJCFSetup.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportBsp\BspConverter.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportBsp\BspLoader.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportBsp\ImportBspExample.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportColladaDemo\ImportColladaSetup.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportColladaDemo\LoadMeshFromCollada.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportObjDemo\ImportObjExample.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportObjDemo\LoadMeshFromObj.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportObjDemo\Wavefront2GLInstanceGraphicsShape.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportSTLDemo\ImportSTLSetup.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportSDFDemo\ImportSDFSetup.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\ImportURDFSetup.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\URDF2Bullet.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\MyMultiBodyCreator.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\MyMultiBodyCreator.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\UrdfParser.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Utils\RobotLoggingUtil.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Utils\RobotLoggingUtil.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\urdfStringSplit.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\urdfStringSplit.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\BulletUrdfImporter.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Importers\ImportURDFDemo\BulletUrdfImporter.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\VoronoiFracture\VoronoiFractureDemo.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\VoronoiFracture\VoronoiFractureDemo.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\VoronoiFracture\btConvexConvexMprAlgorithm.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\VoronoiFracture\btConvexConvexMprAlgorithm.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Vehicles\Hinge2Vehicle.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Vehicles\Hinge2Vehicle.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiBody\Pendulum.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiBody\MultiBodySoftContact.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiBody\TestJointTorqueSetup.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiBody\TestJointTorqueSetup.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiBody\InvertedPendulumPDControl.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiBody\InvertedPendulumPDControl.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiBody\MultiBodyConstraintFeedback.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiBody\KinematicMultiBodyExample.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SoftDemo\SoftDemo.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\SoftDemo\SoftDemo.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\DeformableContact.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\DeformableContact.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\GraspDeformable.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\GraspDeformable.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\Pinch.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\Pinch.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\DeformableSelfCollision.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\DeformableSelfCollision.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\PinchFriction.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\PinchFriction.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\ClothFriction.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\ClothFriction.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\DeformableMultibody.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\DeformableMultibody.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\DeformableRigid.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\DeformableRigid.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\SplitImpulse.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\SplitImpulse.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\VolumetricDeformable.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\VolumetricDeformable.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\Collide.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\Collide.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\LargeDeformation.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\LoadDeformed.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\LoadDeformed.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\LargeDeformation.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\DeformableClothAnchor.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\DeformableClothAnchor.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\MultibodyClothAnchor.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\DeformableDemo\MultibodyClothAnchor.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiBody\MultiDofDemo.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\MultiBody\MultiDofDemo.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RigidBody\RigidBodySoftContact.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\RigidBody\KinematicRigidBodyExample.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ReducedDeformableDemo\ConservationTest.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ReducedDeformableDemo\ConservationTest.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ReducedDeformableDemo\Springboard.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ReducedDeformableDemo\Springboard.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ReducedDeformableDemo\ModeVisualizer.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ReducedDeformableDemo\ModeVisualizer.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ReducedDeformableDemo\FreeFall.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ReducedDeformableDemo\FreeFall.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ReducedDeformableDemo\FrictionSlope.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ReducedDeformableDemo\FrictionSlope.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ReducedDeformableDemo\ReducedCollide.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ReducedDeformableDemo\ReducedCollide.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ReducedDeformableDemo\ReducedGrasp.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ReducedDeformableDemo\ReducedGrasp.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ReducedDeformableDemo\ReducedBenchmark.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ReducedDeformableDemo\ReducedBenchmark.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ReducedDeformableDemo\ReducedMotorGrasp.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ReducedDeformableDemo\ReducedMotorGrasp.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Constraints\TestHingeTorque.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Constraints\TestHingeTorque.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Constraints\ConstraintDemo.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Constraints\ConstraintDemo.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Constraints\Dof6Spring2Setup.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Constraints\Dof6Spring2Setup.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Constraints\ConstraintPhysicsSetup.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\Constraints\ConstraintPhysicsSetup.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\stb_image\stb_image.cpp" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\stb_image\stb_image.h" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\stb_image\stb_image_write.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ThirdPartyLibs\tinyxml2\tinyxml2.cpp" />
+    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\examples\ExampleBrowser\InProcessExampleBrowser.cpp" />
+    <ResourceCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\build3\bullet.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ZERO_CHECK.vcxproj">
+      <Project>{907AF7CA-BFD5-3B58-A10E-8278F31BADC1}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\src\Bullet3Common\Bullet3Common.vcxproj">
+      <Project>{3D46428E-8DEC-31E4-AF5F-FB93CEF4F5AB}</Project>
+      <Name>Bullet3Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\src\BulletCollision\BulletCollision.vcxproj">
+      <Project>{AD2FC0CA-562C-3FBA-960C-930E81C581F7}</Project>
+      <Name>BulletCollision</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\src\BulletDynamics\BulletDynamics.vcxproj">
+      <Project>{53E37909-0559-32CD-ADAD-68E833E9A025}</Project>
+      <Name>BulletDynamics</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\ExampleBrowser\BulletExampleBrowserLib.vcxproj">
+      <Project>{379C00B0-0C39-39DB-B66B-D814E54D6D14}</Project>
+      <Name>BulletExampleBrowserLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\src\BulletInverseDynamics\BulletInverseDynamics.vcxproj">
+      <Project>{F485449F-04D0-3C45-92BC-54CDBB0B8581}</Project>
+      <Name>BulletInverseDynamics</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\Extras\InverseDynamics\BulletInverseDynamicsUtils.vcxproj">
+      <Project>{61FAD4C8-ADE1-3F7D-97AA-E786B835C7F2}</Project>
+      <Name>BulletInverseDynamicsUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\src\BulletSoftBody\BulletSoftBody.vcxproj">
+      <Project>{507EA3FC-5F82-354F-A49E-7E2A8F5D6D15}</Project>
+      <Name>BulletSoftBody</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\ThirdPartyLibs\BussIK\BussIK.vcxproj">
+      <Project>{BD6879BD-EFAA-3DAA-8BAB-A0C2A8D89640}</Project>
+      <Name>BussIK</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\src\LinearMath\LinearMath.vcxproj">
+      <Project>{B6B1C4E1-7F54-3E99-A3FF-76029CF16622}</Project>
+      <Name>LinearMath</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\OpenGLWindow\OpenGLWindow.vcxproj">
+      <Project>{428BDA90-7C15-324C-86A2-D130A8EDF6B7}</Project>
+      <Name>OpenGLWindow</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\examples\ThirdPartyLibs\Gwen\gwen.vcxproj">
+      <Project>{F96F9FDD-91A7-3115-898A-623C17DDEE9B}</Project>
+      <Name>gwen</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

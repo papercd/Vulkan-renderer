@@ -1,0 +1,15 @@
+[submodule "ext/bullet"]
+	path = ext/bullet
+	url = https://github.com/bulletphysics/bullet3
+[submodule "ext/glfw"]
+	path = ext/glfw
+	url = https://github.com/glfw/glfw
+[submodule "ext/glm"]
+	path = ext/glm
+	url = https://github.com/g-truc/glm
+[submodule "ext/tinygltf"]
+	path = ext/tinygltf
+	url = https://github.com/syoyo/tinygltf
+[submodule "ext/vk-bootstrap"]
+	path = ext/vk-bootstrap
+	url = https://github.com/charles-lunarg/vk-bootstrap
