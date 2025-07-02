@@ -16,6 +16,7 @@ endif()
 file(GLOB NEW_GLOB LIST_DIRECTORIES true "C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/engine/*.h")
 set(OLD_GLOB
   "C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/engine/Engine.h"
+  "C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/engine/Material.h"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
@@ -39,7 +40,9 @@ endif()
 file(GLOB NEW_GLOB LIST_DIRECTORIES true "C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/engine/Renderer/*.h")
 set(OLD_GLOB
   "C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/engine/Renderer/BufferUtils.h"
+  "C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/engine/Renderer/GPUMesh.h"
   "C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/engine/Renderer/ModelLoader.h"
+  "C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/engine/Renderer/SceneObject.h"
   "C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/engine/Renderer/VulkanContext.h"
   "C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/engine/Renderer/VulkanGraphicsPipeline.h"
   )

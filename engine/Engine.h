@@ -5,7 +5,8 @@
 #include "Renderer/VulkanContext.h"
 #include "Renderer/BufferUtils.h"
 #include "Renderer/ModelLoader.h" // <- contains the Mesh struct
-
+#include <vector>
+#include "Renderer/SceneObject.h"
 class Engine
 {
 public:
@@ -35,14 +36,12 @@ private:
     glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
     glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
-    Mesh mesh;
-    VulkanBuffer vertexBuffer;
-    VulkanBuffer indexBuffer;
+    std::vector<SceneObject> sceneObjects;
+
     VulkanGraphicsPipeline *pipeline = nullptr;
 
     void init();
     void mainLoop();
-    void drawFrame(VkCommandBuffer commandBuffer, VulkanGraphicsPipeline &pipeline, const VulkanBuffer &vertexBuffer, const VulkanBuffer &indexBuffer, uint32_t indexCount);
-
+    void drawFrame(VkCommandBuffer commandBuffer, VulkanGraphicsPipeline &pipeline);
     void cleanup();
 };

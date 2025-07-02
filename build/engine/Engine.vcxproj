@@ -290,10 +290,13 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Engine.cpp" />
     <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Engine.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Material.h" />
     <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\BufferUtils.cpp" />
     <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\BufferUtils.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\GPUMesh.h" />
     <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\ModelLoader.cpp" />
     <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\ModelLoader.h" />
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\SceneObject.h" />
     <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\VulkanContext.cpp" />
     <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\VulkanContext.h" />
     <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\VulkanGraphicsPipeline.cpp" />

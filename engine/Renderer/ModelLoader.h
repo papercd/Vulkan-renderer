@@ -2,6 +2,9 @@
 #include <tiny_gltf.h>
 #include <vector>
 #include <glm/glm.hpp>
+#include "BufferUtils.h"
+#include "SceneObject.h"
+#include "Material.h"
 
 struct Vertex
 {
@@ -17,3 +20,7 @@ struct Mesh
 };
 
 bool loadGLTFModel(const std::string &path, Mesh &outMesh);
+
+SceneObject loadGLTFModelToSceneObject(const std::string &path, VkDevice device, VkPhysicalDevice physicalDevice, VkCommandPool commandPool, VkQueue graphicsQueue, VkDescriptorPool descriptorPool, VkDescriptorSetLayout descriptorSetLayout);
+
+Material *createMaterialFromGLTFImage(const tinygltf::Image &gltfImage, VkDevice device, VkPhysicalDevice physicalDevice, VkCommandPool commandPool, VkQueue graphicsQueue, VkDescriptorPool descriptorPool, VkDescriptorSetLayout descriptorSetLayout);

@@ -37,9 +37,6 @@ void Engine::init()
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
     this->window = glfwCreateWindow(800, 600, "Vulkan Game", nullptr, nullptr);
 
-    // Testing model load
-    loadGLTFModel("../../assets/6_Pounder_Brass_Cannon.glb", this->mesh);
-
     std::cout << "creating Vulkan context..." << std::endl;
     vkContext = new VulkanContext(this->window);
 
@@ -73,25 +70,7 @@ void Engine::init()
     fenceInfo.flags = VK_FENCE_CREATE_SIGNALED_BIT;
     vkCreateFence(device, &fenceInfo, nullptr, &inFlight);
 
-    VkPhysicalDevice physicalDevice = vkContext->getPhysicalDevice();
-
-    std::cout << "creating vertex and index buffers..." << std::endl;
-
-    this->vertexBuffer = createBuffer(device, physicalDevice,
-                                      sizeof(Vertex) * this->mesh.vertices.size(),
-                                      VK_BUFFER_USAGE_VERTEX_BUFFER_BIT,
-                                      VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
-
-    copyDataToBuffer(device, vertexBuffer.memory, this->mesh.vertices.data(), sizeof(Vertex) * this->mesh.vertices.size());
-
-    this->indexBuffer = createBuffer(device, physicalDevice,
-                                     sizeof(uint32_t) * this->mesh.indices.size(),
-                                     VK_BUFFER_USAGE_INDEX_BUFFER_BIT,
-                                     VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
-
-    copyDataToBuffer(device, indexBuffer.memory, this->mesh.indices.data(), sizeof(uint32_t) * this->mesh.indices.size());
-
-    // Create temporary pipeline
+    sceneObjects.push_back(loadGLTFModelToSceneObject("../../assets/6_Pounder_Brass_Cannon.glb", vkContext->getDevice(), vkContext->getPhysicalDevice(), commandPool, vkContext->getGraphicsQueue(), pipeline->getDescriptorPool(), pipeline->getDescriptorSetLayout()));
 }
 
 void Engine::mainLoop()
@@ -146,16 +125,15 @@ void Engine::mainLoop()
                         radius * cos(pitch) * cos(yaw)) +
                     target;
 
-        drawFrame(commandBuffer, *pipeline, vertexBuffer, indexBuffer, static_cast<uint32_t>(mesh.indices.size()));
+        drawFrame(commandBuffer, *pipeline);
     }
 }
 
 void Engine::drawFrame(
     VkCommandBuffer commandBuffer,
-    VulkanGraphicsPipeline &pipeline,
-    const VulkanBuffer &vertexBuffer,
-    const VulkanBuffer &indexBuffer,
-    uint32_t indexCount)
+    VulkanGraphicsPipeline &pipeline
+
+)
 {
     VkDevice device = vkContext->getDevice();
 
@@ -237,20 +215,35 @@ void Engine::drawFrame(
     std::cout << "[Frame] Binding pipeline and drawing mesh..." << std::endl;
     vkCmdBindPipeline(commandBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, pipeline.getPipeline());
 
-    VkDeviceSize offsets[] = {0};
-    vkCmdBindVertexBuffers(commandBuffer, 0, 1, &vertexBuffer.buffer, offsets);
-    vkCmdBindIndexBuffer(commandBuffer, indexBuffer.buffer, 0, VK_INDEX_TYPE_UINT32);
-
-    // Push constants (MVP)
-    glm::mat4 model = glm::mat4(1.0f);
+    // camera view and projection
     glm::mat4 view = glm::lookAt(cameraPos, target, cameraUp);
 
-    glm::mat4 proj = glm::perspective(glm::radians(45.0f), extent.width / (float)extent.height, 0.1f, 10.0f);
+    glm::mat4 proj = glm::perspective(glm::radians(45.0f), extent.width / (float)extent.height, 0.1f, 100.0f);
+
     proj[1][1] *= -1;
 
-    glm::mat4 mvp = proj * view * model;
-    vkCmdPushConstants(commandBuffer, pipeline.getLayout(), VK_SHADER_STAGE_VERTEX_BIT, 0, sizeof(glm::mat4), &mvp);
-    vkCmdDrawIndexed(commandBuffer, indexCount, 1, 0, 0, 0);
+    for (const SceneObject &obj : sceneObjects)
+    {
+        for (const GPUMesh &gpu : obj.meshes)
+        {
+            VkDeviceSize offsets[] = {0};
+            vkCmdBindVertexBuffers(commandBuffer, 0, 1, &gpu.vertexBuffer.buffer, offsets);
+            vkCmdBindIndexBuffer(commandBuffer, gpu.indexBuffer.buffer, 0, VK_INDEX_TYPE_UINT32);
+
+            glm::mat4 mvp = proj * view * obj.transform;
+            vkCmdPushConstants(commandBuffer, pipeline.getLayout(), VK_SHADER_STAGE_VERTEX_BIT, 0, sizeof(glm::mat4), &mvp);
+            if (gpu.material && gpu.material->descriptorSet != VK_NULL_HANDLE)
+            {
+                vkCmdBindDescriptorSets(
+                    commandBuffer,
+                    VK_PIPELINE_BIND_POINT_GRAPHICS,
+                    pipeline.getLayout(),
+                    0, 1, &gpu.material->descriptorSet,
+                    0, nullptr);
+            }
+            vkCmdDrawIndexed(commandBuffer, gpu.indexCount, 1, 0, 0, 0);
+        }
+    }
 
     // === [8] End rendering and recording ===
     std::cout << "[Frame] Ending rendering and command buffer..." << std::endl;
@@ -320,18 +313,29 @@ void Engine::drawFrame(
 
 void Engine::cleanup()
 {
-    vkDeviceWaitIdle(vkContext->getDevice());
 
-    vkDestroyBuffer(vkContext->getDevice(), vertexBuffer.buffer, nullptr);
-    vkFreeMemory(vkContext->getDevice(), vertexBuffer.memory, nullptr);
-    vkDestroyBuffer(vkContext->getDevice(), indexBuffer.buffer, nullptr);
-    vkFreeMemory(vkContext->getDevice(), indexBuffer.memory, nullptr);
+    VkDevice device = vkContext->getDevice();
 
-    vkDestroyCommandPool(vkContext->getDevice(), commandPool, nullptr);
+    vkDeviceWaitIdle(device);
+
+    // Cleanup each SceneObject's buffers
+    for (auto &obj : sceneObjects)
+    {
+        for (auto &gpu : obj.meshes)
+        {
+            vkDestroyBuffer(device, gpu.vertexBuffer.buffer, nullptr);
+            vkFreeMemory(device, gpu.vertexBuffer.memory, nullptr);
+            vkDestroyBuffer(device, gpu.indexBuffer.buffer, nullptr);
+            vkFreeMemory(device, gpu.indexBuffer.memory, nullptr);
+        }
+    }
+
+    vkDestroyCommandPool(device, commandPool, nullptr);
     delete pipeline;
-    vkDestroyFence(vkContext->getDevice(), inFlight, nullptr);
-    vkDestroySemaphore(vkContext->getDevice(), imageAvailable, nullptr);
-    vkDestroySemaphore(vkContext->getDevice(), renderFinished, nullptr);
+
+    vkDestroyFence(device, inFlight, nullptr);
+    vkDestroySemaphore(device, imageAvailable, nullptr);
+    vkDestroySemaphore(device, renderFinished, nullptr);
 
     delete vkContext;
 

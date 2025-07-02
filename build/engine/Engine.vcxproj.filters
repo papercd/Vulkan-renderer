@@ -24,10 +24,19 @@
     <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\BufferUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\GPUMesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\ModelLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\SceneObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\VulkanContext.h">

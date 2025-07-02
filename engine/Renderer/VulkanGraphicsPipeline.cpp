@@ -128,8 +128,24 @@ void VulkanGraphicsPipeline::createGraphicsPipeline(VkFormat colorFormat)
     pushConstantRange.offset = 0;
     pushConstantRange.size = sizeof(glm::mat4);
 
+    // Descriptor set layout for texture sampler
+    VkDescriptorSetLayoutBinding samplerBinding{};
+    samplerBinding.binding = 0;
+    samplerBinding.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    samplerBinding.descriptorCount = 1;
+    samplerBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+
+    VkDescriptorSetLayoutCreateInfo descriptorSetlayoutInfo{VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO};
+    descriptorSetlayoutInfo.bindingCount = 1;
+    descriptorSetlayoutInfo.pBindings = &samplerBinding;
+
+    if (vkCreateDescriptorSetLayout(device, &descriptorSetlayoutInfo, nullptr, &descriptorSetLayout) != VK_SUCCESS)
+        throw std::runtime_error("Failed to create descriptor set layout.");
+
     // 9. Pipeline layout
     VkPipelineLayoutCreateInfo layoutInfo{VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO};
+    layoutInfo.setLayoutCount = 1;
+    layoutInfo.pSetLayouts = &descriptorSetLayout;
     layoutInfo.pushConstantRangeCount = 1;
     layoutInfo.pPushConstantRanges = &pushConstantRange;
     if (vkCreatePipelineLayout(device, &layoutInfo, nullptr, &pipelineLayout) != VK_SUCCESS)
@@ -158,6 +174,18 @@ void VulkanGraphicsPipeline::createGraphicsPipeline(VkFormat colorFormat)
 
     if (vkCreateGraphicsPipelines(device, VK_NULL_HANDLE, 1, &pipelineInfo, nullptr, &pipeline) != VK_SUCCESS)
         throw std::runtime_error("Failed to create graphics pipeline");
+
+    VkDescriptorPoolSize poolSize{};
+    poolSize.type = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    poolSize.descriptorCount = 100; // Support up to 100 textures
+
+    VkDescriptorPoolCreateInfo poolInfo{VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO};
+    poolInfo.maxSets = 100;
+    poolInfo.poolSizeCount = 1;
+    poolInfo.pPoolSizes = &poolSize;
+
+    if (vkCreateDescriptorPool(device, &poolInfo, nullptr, &descriptorPool) != VK_SUCCESS)
+        throw std::runtime_error("Failed to create descriptor pool.");
 
     // Cleanup shaders
     vkDestroyShaderModule(device, vertShaderModule, nullptr);

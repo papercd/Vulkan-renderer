@@ -58,6 +58,17 @@
     "format": "cpp",
     "numbers": "cpp",
     "span": "cpp",
-    "variant": "cpp"
+    "variant": "cpp",
+    "bitset": "cpp",
+    "codecvt": "cpp",
+    "complex": "cpp",
+    "condition_variable": "cpp",
+    "forward_list": "cpp",
+    "regex": "cpp",
+    "mutex": "cpp",
+    "thread": "cpp",
+    "valarray": "cpp",
+    "semaphore": "cpp",
+    "stop_token": "cpp"
   }
 }
