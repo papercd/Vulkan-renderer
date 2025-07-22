@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{AA96716C-0F4E-3E1F-AFAB-08273E6749E7}</ProjectGuid>
+    <ProjectGuid>{A427E21B-48C1-3D1A-8B4B-9577F24E0D5A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -59,25 +59,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\hpptk\OneDrive\Desktop\vulkan\build\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">VulkanGameEngine.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">VulkanGameEngine</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\hpptk\OneDrive\Desktop\vulkan\build\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">VulkanGameEngine.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">VulkanGameEngine</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\hpptk\OneDrive\Desktop\vulkan\build\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">VulkanGameEngine.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">VulkanGameEngine</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\hpptk\OneDrive\Desktop\vulkan\build\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">VulkanGameEngine.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">VulkanGameEngine</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
@@ -86,8 +86,8 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/1.3.296.0/Include"</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/1.4.309.0/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -108,10 +108,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;C:\VulkanSDK\1.3.296.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;C:\VulkanSDK\1.4.309.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;C:\VulkanSDK\1.3.296.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;C:\VulkanSDK\1.4.309.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -119,13 +119,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>C:\VulkanSDK\1.3.296.0\Lib\vulkan-1.lib;lib\Debug\glfw3_Debug.lib;lib\Debug\BulletDynamics_Debug.lib;lib\Debug\BulletCollision_Debug.lib;lib\Debug\LinearMath_Debug.lib;lib\Debug\Engine_Debug.lib;C:\VulkanSDK\1.3.296.0\Lib\vulkan-1.lib;lib\Debug\glfw3_Debug.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\VulkanSDK\1.4.309.0\Lib\vulkan-1.lib;lib\Debug\glfw3_Debug.lib;lib\Debug\BulletDynamics_Debug.lib;lib\Debug\BulletCollision_Debug.lib;lib\Debug\LinearMath_Debug.lib;lib\Debug\Engine_Debug.lib;C:\VulkanSDK\1.4.309.0\Lib\vulkan-1.lib;lib\Debug\glfw3_Debug.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/Debug/VulkanGameEngine.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/Debug/VulkanGameEngine.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/hpptk/OneDrive/Desktop/vulkan/build/Debug/VulkanGameEngine.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/hpptk/OneDrive/Desktop/vulkan/build/Debug/VulkanGameEngine.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -134,8 +134,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/1.3.296.0/Include"</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/1.4.309.0/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -157,10 +157,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;C:\VulkanSDK\1.3.296.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;C:\VulkanSDK\1.4.309.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;C:\VulkanSDK\1.3.296.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;C:\VulkanSDK\1.4.309.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -168,13 +168,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>C:\VulkanSDK\1.3.296.0\Lib\vulkan-1.lib;lib\Release\glfw3.lib;lib\Release\BulletDynamics.lib;lib\Release\BulletCollision.lib;lib\Release\LinearMath.lib;lib\Release\Engine.lib;C:\VulkanSDK\1.3.296.0\Lib\vulkan-1.lib;lib\Release\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\VulkanSDK\1.4.309.0\Lib\vulkan-1.lib;lib\Release\glfw3.lib;lib\Release\BulletDynamics.lib;lib\Release\BulletCollision.lib;lib\Release\LinearMath.lib;lib\Release\Engine.lib;C:\VulkanSDK\1.4.309.0\Lib\vulkan-1.lib;lib\Release\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/Release/VulkanGameEngine.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/Release/VulkanGameEngine.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/hpptk/OneDrive/Desktop/vulkan/build/Release/VulkanGameEngine.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/hpptk/OneDrive/Desktop/vulkan/build/Release/VulkanGameEngine.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -183,8 +183,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/1.3.296.0/Include"</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/1.4.309.0/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -206,10 +206,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;C:\VulkanSDK\1.3.296.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;C:\VulkanSDK\1.4.309.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;C:\VulkanSDK\1.3.296.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;C:\VulkanSDK\1.4.309.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -217,13 +217,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>C:\VulkanSDK\1.3.296.0\Lib\vulkan-1.lib;lib\MinSizeRel\glfw3_MinsizeRel.lib;lib\MinSizeRel\BulletDynamics_MinsizeRel.lib;lib\MinSizeRel\BulletCollision_MinsizeRel.lib;lib\MinSizeRel\LinearMath_MinsizeRel.lib;lib\MinSizeRel\Engine_MinsizeRel.lib;C:\VulkanSDK\1.3.296.0\Lib\vulkan-1.lib;lib\MinSizeRel\glfw3_MinsizeRel.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\VulkanSDK\1.4.309.0\Lib\vulkan-1.lib;lib\MinSizeRel\glfw3_MinsizeRel.lib;lib\MinSizeRel\BulletDynamics_MinsizeRel.lib;lib\MinSizeRel\BulletCollision_MinsizeRel.lib;lib\MinSizeRel\LinearMath_MinsizeRel.lib;lib\MinSizeRel\Engine_MinsizeRel.lib;C:\VulkanSDK\1.4.309.0\Lib\vulkan-1.lib;lib\MinSizeRel\glfw3_MinsizeRel.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/MinSizeRel/VulkanGameEngine.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/MinSizeRel/VulkanGameEngine.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/hpptk/OneDrive/Desktop/vulkan/build/MinSizeRel/VulkanGameEngine.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/hpptk/OneDrive/Desktop/vulkan/build/MinSizeRel/VulkanGameEngine.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -232,8 +232,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/1.3.296.0/Include"</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/1.4.309.0/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -254,10 +254,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;C:\VulkanSDK\1.3.296.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;C:\VulkanSDK\1.4.309.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;C:\VulkanSDK\1.3.296.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;C:\VulkanSDK\1.4.309.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -265,13 +265,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>C:\VulkanSDK\1.3.296.0\Lib\vulkan-1.lib;lib\RelWithDebInfo\glfw3_RelWithDebugInfo.lib;lib\RelWithDebInfo\BulletDynamics_RelWithDebugInfo.lib;lib\RelWithDebInfo\BulletCollision_RelWithDebugInfo.lib;lib\RelWithDebInfo\LinearMath_RelWithDebugInfo.lib;lib\RelWithDebInfo\Engine_RelWithDebugInfo.lib;C:\VulkanSDK\1.3.296.0\Lib\vulkan-1.lib;lib\RelWithDebInfo\glfw3_RelWithDebugInfo.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\VulkanSDK\1.4.309.0\Lib\vulkan-1.lib;lib\RelWithDebInfo\glfw3_RelWithDebugInfo.lib;lib\RelWithDebInfo\BulletDynamics_RelWithDebugInfo.lib;lib\RelWithDebInfo\BulletCollision_RelWithDebugInfo.lib;lib\RelWithDebInfo\LinearMath_RelWithDebugInfo.lib;lib\RelWithDebInfo\Engine_RelWithDebugInfo.lib;C:\VulkanSDK\1.4.309.0\Lib\vulkan-1.lib;lib\RelWithDebInfo\glfw3_RelWithDebugInfo.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/RelWithDebInfo/VulkanGameEngine.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/RelWithDebInfo/VulkanGameEngine.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/hpptk/OneDrive/Desktop/vulkan/build/RelWithDebInfo/VulkanGameEngine.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/hpptk/OneDrive/Desktop/vulkan/build/RelWithDebInfo/VulkanGameEngine.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -279,11 +279,11 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/hpptk/OneDrive/Desktop/vulkan/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/FORYOUCOM/Desktop/vulkan/my_engine -BC:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build --check-stamp-file C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/hpptk/OneDrive/Desktop/vulkan -BC:/Users/hpptk/OneDrive/Desktop/vulkan/build --check-stamp-file C:/Users/hpptk/OneDrive/Desktop/vulkan/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -291,12 +291,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindVulkan.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\3.30.1\CMakeCCompiler.cmake;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\3.30.1\CMakeCXXCompiler.cmake;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\3.30.1\CMakeRCCompiler.cmake;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\3.30.1\CMakeSystem.cmake;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindVulkan.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\WindowsPaths.cmake;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\4.0.0-rc4\CMakeCCompiler.cmake;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\4.0.0-rc4\CMakeCXXCompiler.cmake;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\4.0.0-rc4\CMakeRCCompiler.cmake;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\4.0.0-rc4\CMakeSystem.cmake;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/hpptk/OneDrive/Desktop/vulkan/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/FORYOUCOM/Desktop/vulkan/my_engine -BC:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build --check-stamp-file C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/hpptk/OneDrive/Desktop/vulkan -BC:/Users/hpptk/OneDrive/Desktop/vulkan/build --check-stamp-file C:/Users/hpptk/OneDrive/Desktop/vulkan/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -304,12 +304,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindVulkan.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\3.30.1\CMakeCCompiler.cmake;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\3.30.1\CMakeCXXCompiler.cmake;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\3.30.1\CMakeRCCompiler.cmake;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\3.30.1\CMakeSystem.cmake;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindVulkan.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\WindowsPaths.cmake;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\4.0.0-rc4\CMakeCCompiler.cmake;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\4.0.0-rc4\CMakeCXXCompiler.cmake;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\4.0.0-rc4\CMakeRCCompiler.cmake;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\4.0.0-rc4\CMakeSystem.cmake;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/hpptk/OneDrive/Desktop/vulkan/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/FORYOUCOM/Desktop/vulkan/my_engine -BC:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build --check-stamp-file C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/hpptk/OneDrive/Desktop/vulkan -BC:/Users/hpptk/OneDrive/Desktop/vulkan/build --check-stamp-file C:/Users/hpptk/OneDrive/Desktop/vulkan/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -317,12 +317,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindVulkan.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\3.30.1\CMakeCCompiler.cmake;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\3.30.1\CMakeCXXCompiler.cmake;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\3.30.1\CMakeRCCompiler.cmake;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\3.30.1\CMakeSystem.cmake;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindVulkan.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\WindowsPaths.cmake;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\4.0.0-rc4\CMakeCCompiler.cmake;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\4.0.0-rc4\CMakeCXXCompiler.cmake;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\4.0.0-rc4\CMakeRCCompiler.cmake;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\4.0.0-rc4\CMakeSystem.cmake;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/hpptk/OneDrive/Desktop/vulkan/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/FORYOUCOM/Desktop/vulkan/my_engine -BC:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build --check-stamp-file C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/hpptk/OneDrive/Desktop/vulkan -BC:/Users/hpptk/OneDrive/Desktop/vulkan/build --check-stamp-file C:/Users/hpptk/OneDrive/Desktop/vulkan/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -330,39 +330,40 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindVulkan.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\3.30.1\CMakeCCompiler.cmake;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\3.30.1\CMakeCXXCompiler.cmake;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\3.30.1\CMakeRCCompiler.cmake;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\3.30.1\CMakeSystem.cmake;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindVulkan.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\WindowsPaths.cmake;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\4.0.0-rc4\CMakeCCompiler.cmake;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\4.0.0-rc4\CMakeCXXCompiler.cmake;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\4.0.0-rc4\CMakeRCCompiler.cmake;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\4.0.0-rc4\CMakeSystem.cmake;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\main.cpp" />
+    <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\main.cpp" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ZERO_CHECK.vcxproj">
-      <Project>{907AF7CA-BFD5-3B58-A10E-8278F31BADC1}</Project>
+    <ProjectReference Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\build\ZERO_CHECK.vcxproj">
+      <Project>{056D6A73-70B1-3F09-A86B-AD47FF022BDF}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\src\BulletCollision\BulletCollision.vcxproj">
-      <Project>{AD2FC0CA-562C-3FBA-960C-930E81C581F7}</Project>
+    <ProjectReference Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\build\ext\bullet\src\BulletCollision\BulletCollision.vcxproj">
+      <Project>{D003B70F-10DC-3BC7-8215-9375693FF6ED}</Project>
       <Name>BulletCollision</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\src\BulletDynamics\BulletDynamics.vcxproj">
-      <Project>{53E37909-0559-32CD-ADAD-68E833E9A025}</Project>
+    <ProjectReference Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\build\ext\bullet\src\BulletDynamics\BulletDynamics.vcxproj">
+      <Project>{2B87DF42-72BD-31C0-B60D-CD745E1C6A9F}</Project>
       <Name>BulletDynamics</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\engine\Engine.vcxproj">
-      <Project>{BFC2B205-692D-3805-8DA1-4ABA38C3241B}</Project>
+    <ProjectReference Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\build\engine\Engine.vcxproj">
+      <Project>{B6A010B8-CE01-3767-954A-006774923806}</Project>
       <Name>Engine</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\bullet\src\LinearMath\LinearMath.vcxproj">
-      <Project>{B6B1C4E1-7F54-3E99-A3FF-76029CF16622}</Project>
+    <ProjectReference Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\build\ext\bullet\src\LinearMath\LinearMath.vcxproj">
+      <Project>{7DF92EE5-A8C9-30C1-9906-C1A981511405}</Project>
       <Name>LinearMath</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\glfw\src\glfw.vcxproj">
-      <Project>{36A36938-E003-3B6E-BD30-66B04C76CCF3}</Project>
+    <ProjectReference Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\build\ext\glfw\src\glfw.vcxproj">
+      <Project>{16B735F4-1EB7-3277-B5B3-928D4D4D9AFE}</Project>
       <Name>glfw</Name>
     </ProjectReference>
   </ItemGroup>

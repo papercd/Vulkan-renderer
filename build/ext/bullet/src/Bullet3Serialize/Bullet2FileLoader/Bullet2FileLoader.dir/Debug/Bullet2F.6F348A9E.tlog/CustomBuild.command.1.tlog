@@ -1,0 +1,10 @@
+^C:\USERS\HPPTK\ONEDRIVE\DESKTOP\VULKAN\EXT\BULLET\SRC\BULLET3SERIALIZE\BULLET2FILELOADER\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/hpptk/OneDrive/Desktop/vulkan -BC:/Users/hpptk/OneDrive/Desktop/vulkan/build --check-stamp-file C:/Users/hpptk/OneDrive/Desktop/vulkan/build/ext/bullet/src/Bullet3Serialize/Bullet2FileLoader/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

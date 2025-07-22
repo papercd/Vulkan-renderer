@@ -1,60 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Engine.cpp">
+    <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\BufferUtils.cpp">
+    <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\BufferUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\ModelLoader.cpp">
+    <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\ModelLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\VulkanContext.cpp">
+    <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\VulkanContext.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\VulkanGraphicsPipeline.cpp">
+    <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\VulkanGraphicsPipeline.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src\VkBootstrap.cpp">
+    <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src\VkBootstrap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Engine.h">
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Material.h">
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Material.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\BufferUtils.h">
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\BufferUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\GPUMesh.h">
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\GPUMesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\ModelLoader.h">
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\ModelLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\SceneObject.h">
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\SceneObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\VulkanContext.h">
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\VulkanContext.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\VulkanGraphicsPipeline.h">
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\VulkanGraphicsPipeline.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{6E77623E-44AB-3BFC-912B-E6C8FCBCC19A}</UniqueIdentifier>
+      <UniqueIdentifier>{002A7B2B-22DF-305C-9AAA-075AA3A266D6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{B0C7DDF2-DCF3-3306-847D-9BA642CA193D}</UniqueIdentifier>
+      <UniqueIdentifier>{768C9FC4-4644-39F8-AA7C-1F9C10D407CC}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,0 +1,114 @@
+Graphics programming -
+
+1. the rendering pipeline architecture: 
+
+
+application stage :
+프로그램이 실행될 때 CPU상에서 발생하는 프로세스들. 이 단계에서 다음 stage인 geometry processing stage에 입력 값인
+Geometry (buffer 형태로 생성된, 렌더링 할 모델들)이 만들어진다. 렌더링할 Geometry의 개수, 및 렌더링 primitive (가장 기본적인 모양 - triangle, point, line) 등을 결정한다. 게임을 만들 경우 이 단계에서 논리적인 연산 (충돌 해결 collision detection - culling ) 등이 보통 실행된다. 물론 compute shader를 활용해서 처리를 하는 경우도 있다. GPU 상에서 처리되는 나머지 단계들과의 가장 큰 차이점은 프로세스들이 sequential하게 처리된다는 점이다. 성능을 높이기 위해서  concurrent programming, multithreading 등과 같은 기술들이 사용될 수 있다. 
+
+geometry processing : 
+
+vertex shading -> projection -> clipping -> screen mapping 
+
+a.vertex shading: 렌더링 할 모델의 '점'들의 대한 정보를 준비하는 단계. (위치, 노말 벡터, material 데이터 등).
+전에는 모델의 '색' 또는 shade 를 정하는 과정이 vertex shader 내에서 처리됐다. 어느 한 점의 위치 정보와 노말 벡터 정보를 
+사용해서 lighting을 계산하고 그 정보를 각 점에 저장하고, 그 점이 포함된 triangle 모양의 색을 interpolation을 활용해서
+연산해 전체 모델의 색을 표현했다. 그래서 이름이 'vertex shader'. 각 점에 색을 입히는 단계였기 때문에. 하지만 지금은 
+각 점에 대한 정보를 다음 단계를 위해 준비하는, 좀 더 general 한 단계로 변함. 
+
+먼저 어떤 모델을 구성하는 점들은 '모델 스페이스' model space 에서 출발한다. 
+
+- 원점을 중심으로 점들을 알맞는 위치에 구성해 모델을 만든다. (model space) 
+
+컴퓨터 그래픽스에서는 어떤 모델을 하나의 coordinate space에서 다른 coordinate space으로 변환할 때  매트릭스 연산을 
+쓴다. 매트릭스 연산은 간단한 표현법으로 모델의 정보를 효율적으로 연산한다. 
+
+하나의 coordinate space에서 다른 space으로 변환할 때 사용하는 매트릭스를 'transform' 이라고 부른다. 
+처음 모델을 생성할 때 정의하는 점들의 위치를 model coordinates이라고 부르고, 모델의 'initial positionining' 을 
+하나의 model transform으로 표현한다. (하나의 매트릭스가 모델의 위치, 회전, scaling 등을 표현한다). 모델의 각 점들에 
+이 model transform 을 적용하면 ( 매트릭스 연산을 하면) 모델을 구성하는 점들이 model space 에서 world space으로 넘어간다. 
+
+컴퓨터 렌더러는 ( 모델들을 컴퓨터 화면에 보여주는 프로그램 )은 '카메라' 개념이 필연적이다. 컴퓨터 속 세상을 볼 수 있는 범위
+가 제한적이기 때문이다. 이 '카메라'가 보는 모델들만 화면속에 출력된다. 카메라는 하나의 점 으로 표현되고, 다른 모델들처럼 
+world coordinate가 있고 벡터로 표현되는 '방향' 개념이 있다. 
+
+투사 (projection) 및 clipping (culling)을 더 쉽게 연산하기 위해서 카메라 위치를 원점으로 둔 view space으로 
+한 번 더 모델들의 위치를 변환한다. view transform은 카메라의 위치와 방향으로 정의된다. 
+
+보통 view space에서 카메라는 -z 방향으로 향하게끔 하고, y축을 위쪽으로, x축을 오른쪽으로 향하게끔 한다.
+특별한 이유가 없다. 
+
+
+- 'projection' 개념 - 투사. 컴퓨터 화면은 그냥 수많은 픽셀로 이루어진 하나의 '면' 이라고 생각하면 된다. 컴퓨터 화면을
+통해서 우리는 게임이든, simulation이든 그 세상 속 여러 '모델'로 이루어진 하나의 장면을 볼 수 있다. 그 장면을 이루는 
+여러 객체들은 3차원 coordinate space에서 모양이 정의되지만, 결국 장면들의 객체들은 컴퓨터 화면이라는 '면' 에 표현되어야 
+하는데, 이때 사용되는게 투사. view space에 있는 모델들을 이제 카메라 '화면'으로 투사하는 과정이다. 
+
+보통 vertex shader 단계에서 처리되며 크게 두 가지의 투사 방법이 있는데,
+
+a.orthographic 
+
+b.perspective 
+
+orthographic projection는 평형 투사 기법 중 하나이다. 어떤 장면 속에 모델들이 속해서 렌더링 되는 공간을 view volume 또는 frustum 이라고 부르는데, orthographic projection  기법의 view volume 은 보통 rectangular box이다. 
+
+perspective projection는 우리가 실제로 사물을 볼 때 더 멀리있는 것은 더 작아보이는 효과를 mimic하는 투사 기법이다. 
+두 기법은 4*4 매트릭스 transform으로 표현할 수 있고, view space에 있던 coordinate에 이 매트릭스 연산을 적용하면 clip space으로 넘어가게 된다. 
+
+모든 렌더링 pipeline는 vertex processing stage가 존재한다. 이 단계를 거치면 optional stages가 존재하는데, 아래 순서대로 처리할 수 있다:
+
+tessellation -> geometry shading -> stream output 
+
+tessellation: 렌더링 파이프라인에서 점들은 점, 선, 삼각형, 또는 다른 도형을 표현하는데에 쓸 수 있다. 또한 곡선을 표현하는데에 쓸 수 있다. 
+
+tessellation 단계에서는 점들로 이루어진 patches를 더 고른 patches으로 변환한다. 이 새로운 patches는 더 많은 점들로 이루어져있고, 고로 더 많은 삼각형으로 모델을 표현할 수 있다.tessellation은 런타임에 모델의 삼각형 개수를 늘리는 것이기 때문에 GPU computing power를 많이 소모할 수 밖에 없다.
+
+다음은 Geometry shader이다. tessellation shader보다 전에 도입된 shader이기 때문에 대부분의 GPU가 이를 support한다. 여러 primitive (원시 도형)입력으로 새로운 점들을 만들어낸다는 점에서 tessellation shader와 유사하다. 
+
+마지막은 stream output이다. 이 단계에서는 GPU를 geometry 엔진으로 사용할 수 있게 해준다. 파이프라인에 의해서 처리된 점들을 바로 화면에 출력하는 것이 아니라, 추가로 다른 처리 과정을 거칠 수 있게끔 array에 담을 수 있게끔 해주는 단계이다. 이 데이터는 CPU 또는 GPU에 의해 처리될 수 있다. 보통 particle simulation을 위해 사용되는 단계이다. 
+
+
+clipping: 카메라의 시선을 나타내는 view volume (frustum 이라고도 부름) 안에 있는 원시 도형들만 rasterization 단계로 넘겨줘야 렌더링이 가능. 가상 세계는 각 축으로 무한히 뻗어나가기 때문에 모든 것을 다 렌더링을 할 수 없기 때문이다. view volume에 완전히 내포되는 도형들은 그대로 넘겨지고, 겹치지 않는 아예 넘겨지지 않지만 시선 공간과 겹치는 도형들은 어떻게 할까? -> 이 문제를 처리하는 단계가 clipping 단계이다. 예를 들어서 view frustum 안에 하나의 점, 바깥에 하나의 점으로 만들어지는 선분은 어떻게 처리되어야 할까? 바깥에 있는 점을 view frustum 으로 투사 하여 공간 안에 존재하는 점으로 대체해야 한다. 여기서도 projection matrix 연산을 사용한다.
+
+
+screen mapping: view volume (frustum) 안에 있는 모든 원시 도형은 screen-mapping 단계로 넘겨지며, 이 단계에서는 각 원시 도형의 x와 y좌표가 화면 좌표라는 것으로 변환된다. z-좌표와 화면 좌표를 같이 묶은 것을 window 좌표라고도 부른다. 
+
+screen-mapping:
+스크린 매핑은 이동 후 크기 변환으로 이루어진다. unit cube 에 있는 원시 도형들을 실제 모니터에 두 개의 좌표로 지정할 수 있는 직사각형으로 변환 시켜주는데, window는 시작 위치와 크기로 지정되기에 
+하나의 꼭짓점을 기준으로 원시 도형을 이동, window의 크기로 scaling 변환을 해준다. 
+
+여기까지가 geometry processing 단계에 해당하는 과정들이다.  
+ 
+
+Rasterization: 
+변환 과정과 투사를 거친 점들, 그리고 그들의 쉐이딩 데이터를 가지고 rasterization 단계로 넘어가는데 이 단계에서는 렌더링 할 장면에 포함된 모든 원시 도형 안에 있는 픽셀을 (pixel is short for picture element btw) 정하는 단계이다. Rasterization은 크게 두 단계로 나눌 수 있는데, 첫 번째는 트라이앵글 샛업 (triangle setup - primitive assembly이라고도 불린다), 두 번째는 트라이앵글 트래버설 (triangle traversal). 이 두 단계에서는 점과 선도 처리할 수 있지만, 삼각형을 처리하는 경우가 대부분이기 때문에 이름에 트라이앵글이 붙는다. Rasterization - 스캔 컨버젼이라고도 불리는 이 단계는 따라서 screen space상에 있는 z값과 (depth value) 쉐이딩 데이터가 붙어있는 2차원인 점들을 화면상의 픽셀들로 변환시키는 단계라고 볼 수 있다. 
+
+어느 픽셀이 삼각형 내에 포함되어 있는지를 판단하는 기준은 파이프라인을 어떻게 설정하는지에 따라서 달라진다. 예를 들면, 포인트 샘플링 기법을 사용해서 만약에 픽셀의 중점이 삼각형 안에 위치해 있다면, 그 픽셀을 칠하는 것이다. 샘플링을 한 번 하는 방법뿐만 아니라 여러번의 샘플링을 통해 픽셀의 포함 여부를 판단하는 기술들도 존재한다. (multisampling, supersampling). 또한 픽셀의 면적? 부분이 조금이라도 삼각형 안에 위치해 있다면 그 픽셀을 도형 내에 있는 걸로 판단하고 칠하는 conservative rasterization 기법도 존재한다.
+
+Triangle Setup: 
+이 단계에서는 모델을 형성하는 삼각형들의 차증 정보, edge 식, 그리고 여러 다른 데이터를 계산하는 단계이다. 이런 정보는 삼각형 traversal (삼각형 이동?)을 위해서 사용될 수 있고, 또한 geometry 단계에서 생성된 여러 쉐이딩 데이터의 보간 (interpolation)을 위해서 사용될 수 있다. 
+
+Triangle Traversal: 
+이 단계에서는 픽셀의 중점이(또는 샘플이) 모델을 형성하는 삼각형에 덮여지는지를 확인하고 겹치는 부분을 위한 fragment를 생성한다. 어느 샘플들이, 또는 픽셀들이 삼각형 안에 있는지 찾는 과정을 triangle traversal이라고 부른다. 각 삼각형의 fragment의 특성은 삼각형을 이루는 세 꼭지점의 보간된 데이터에 의해 생성된다. 특성으로는 fragment의 깊이, 그리고 geometry 단계에서 생성된 쉐이딩 데이터를 꼽을 수 있다. 삼각형 내에 있는 픽셀들, 또는 샘플들은 그리하여 pixel-processing 단계로 넘겨진다. 
+
+Pixel Processing: 
+이 단계에서 어느 원시 도형에 포함되어 있다고 판단된 모든 픽셀들은 전 단계들을 모두 거친 결과로 분별된다. pixel-processing 단계는 pixel shading와 merging, 이 두 단계로 나눌 수 있는데, pixel processing 단계에서는 말 그대로 원시 도형 내에 있는 각 픽셀마다 필요한 프로세스들을 거치는 단계이다. 
+
+- pixel shading: 
+보간된 쉐이딩 데이터를 입력받아 픽셀의 쉐이딩 연산들이 이 단계에서 처리된다. 결과값은 다음 단계로 넘겨질 하나 또는 하나 이상의 색 값이다. 보통 처리 부분이 고정되고 미리 셋업된 부분에서 처리되는 triangle setup과 traversal단계와 다르게 pixel shading 단계는 보통 프로그래밍이 가능한 GPU 코어에서 처리된다. 따라서 프로그래머는 pixel shading을 위한 프로그램을 제공해야 한다 (OpenGL에서는 이를 fragment shader라고 부른다.) 여러 기법들이 이 단계에서 구현될 수 있는데, 그 중 가장 중요한 것 중 하나가 바로 texturing이다. texturing은 어떤 모델에 이미지를 '붙이는' 과정이라고 생각하면 된다. 
+
+- merging: 
+각 픽셀에 대한 정보는 color 버퍼에 저장되어 있는데, 이는 그냥 직사각형 모양의 array이다. (색 정보를 빨강, 초록, 그리고 파랑 컴포넌츠들의 조합으로 나타낸다.) merging 단계에서는 픽셀 쉐이딩 단계에서 뱉어낸 fragment 색 정보와 현재 color 버퍼에 저장되어 있는 정보를 합친다. pixel shading 단계와 다르게 이 단계를 처리하는 GPU 유닛은 프로그래밍이 제한적이다. 하지만 처리 과정을 충분히 프로그래머가 원하는 대로 손 볼 수 있다.
+
+이 단계에서는 또한 렌더링 할 장면 속 모델들의 가시성을 처리한다. 장면이 렌더링 됐을 때, 카메라의 시점에서 보이는 원시 도형들의 색 정보가 color 버퍼에 저장되어 있어야 한다. 이 처리 과정은 거의 모든 그래픽 하드웨어에서 Z-buffer를 활용해 처리한다 (depth-buffer). depth buffer는 color 버퍼와 크기와 모양이 같고, 각 픽셀에 대해 색 정보 대신 가장 가까운 원시 도형에 대한 z-값을 저장한다. 따라서 어느 원시 도형이 어느 픽셀에 렌더링 될 때, 그 픽셀에 대한 원시 도형의 z-값을 계산하고, 현재 그 픽셀에 대해 depth-buffer 에 저장된 값과 비교한다. 만약에 새로운 원시 도형의 z-값이 더 작은 경우, 그러면 그 새로운 원시 도형이 현재 카메라에 대해 더 가깝다는 뜻이고 그 픽셀의 색과 z-값을 새롭게 update 한다. 가장 가까운 원시도형을 렌더링 하는 이 Z-buffer 알고리즘은 간단하고, O(n) time complexity를 를 가지고, (n 은 렌더링 할 원시도형의 개수), 그리고 원시 도형의 모양에 또한 제한이 없다. 그리고 원시 도형이 렌더링 되는 순서 또한 상관이 없다. 이러한 이점들 때문에 많이 사용되는 알고리즘이다. 그러나 z-buffer에는 하나의 픽셀에 대해서 하나의 depth 값만 저장할 수 있기 때문에 투명한 원시 도형들을 렌더링 할 때 사용될 수 없다. 반 투명한 원시 도형들은 불투명한 원시 도형들이 다 렌더링 된 후에 렌더링 될 수 있다. 또한 반 투명한 원시 도형들은 멀리 있는 것부터 렌더링을 해야한다. 아니면 렌더링 순서가 상관없는 알고리즘을 사용해야 한다. color버퍼에는 각 픽셀의 색 정보를, z 버퍼에는 각 픽셀의 depth 값을 저장한다. 그러나 이 정보 말고도 필터링과 fragment 정보를 저장하는 다른 채널과 버퍼가 있다. 그 중 하나가 alpha 채널이다. alpha 채널은 color 버퍼와 연관이 있고 투명한 정도를 나타내는 opacity 값을 저장한다. 
+
+stencil buffer는 
+
+벌컨 이해하기 
+
+1. rendering pipeline을 구축할 때 필요한 요소들은 다른 그래픽스 api와 같지만 vulkan에서는 어느 객체든 생성 시 다른 api에서는 추상화된 세부사항들을 벌컨에서는 프로그래머에게 직접 알고 explicit 하게 정의? 요청하기를 원한다.
+ 
+rendering pipeline 에는 vertex 및 fragment shading stage 말고도 여러 'stage' 단계가 있는데, 
+
+

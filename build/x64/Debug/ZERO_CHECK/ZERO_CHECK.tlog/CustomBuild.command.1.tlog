@@ -1,6 +1,6 @@
-^C:\USERS\FORYOUCOM\DESKTOP\VULKAN\MY_ENGINE\BUILD\CMAKEFILES\E70BC9472AEE1E5E10DE9E78F5DF4A50\GENERATE.STAMP.RULE
+^C:\USERS\HPPTK\ONEDRIVE\DESKTOP\VULKAN\BUILD\CMAKEFILES\BBD78C65DD09A96C37D97BEAD1C3A83C\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/FORYOUCOM/Desktop/vulkan/my_engine -BC:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/VulkanGameEngine.sln
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/hpptk/OneDrive/Desktop/vulkan -BC:/Users/hpptk/OneDrive/Desktop/vulkan/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/hpptk/OneDrive/Desktop/vulkan/build/VulkanGameEngine.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

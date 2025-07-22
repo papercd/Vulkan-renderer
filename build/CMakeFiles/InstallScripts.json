@@ -1,0 +1,23 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/hpptk/OneDrive/Desktop/vulkan/build/cmake_install.cmake",
+		"C:/Users/hpptk/OneDrive/Desktop/vulkan/build/ext/glfw/cmake_install.cmake",
+		"C:/Users/hpptk/OneDrive/Desktop/vulkan/build/ext/glfw/src/cmake_install.cmake",
+		"C:/Users/hpptk/OneDrive/Desktop/vulkan/build/ext/bullet/cmake_install.cmake",
+		"C:/Users/hpptk/OneDrive/Desktop/vulkan/build/ext/bullet/src/cmake_install.cmake",
+		"C:/Users/hpptk/OneDrive/Desktop/vulkan/build/ext/bullet/src/Bullet3OpenCL/cmake_install.cmake",
+		"C:/Users/hpptk/OneDrive/Desktop/vulkan/build/ext/bullet/src/Bullet3Serialize/Bullet2FileLoader/cmake_install.cmake",
+		"C:/Users/hpptk/OneDrive/Desktop/vulkan/build/ext/bullet/src/Bullet3Dynamics/cmake_install.cmake",
+		"C:/Users/hpptk/OneDrive/Desktop/vulkan/build/ext/bullet/src/Bullet3Collision/cmake_install.cmake",
+		"C:/Users/hpptk/OneDrive/Desktop/vulkan/build/ext/bullet/src/Bullet3Geometry/cmake_install.cmake",
+		"C:/Users/hpptk/OneDrive/Desktop/vulkan/build/ext/bullet/src/BulletInverseDynamics/cmake_install.cmake",
+		"C:/Users/hpptk/OneDrive/Desktop/vulkan/build/ext/bullet/src/BulletSoftBody/cmake_install.cmake",
+		"C:/Users/hpptk/OneDrive/Desktop/vulkan/build/ext/bullet/src/BulletCollision/cmake_install.cmake",
+		"C:/Users/hpptk/OneDrive/Desktop/vulkan/build/ext/bullet/src/BulletDynamics/cmake_install.cmake",
+		"C:/Users/hpptk/OneDrive/Desktop/vulkan/build/ext/bullet/src/LinearMath/cmake_install.cmake",
+		"C:/Users/hpptk/OneDrive/Desktop/vulkan/build/ext/bullet/src/Bullet3Common/cmake_install.cmake",
+		"C:/Users/hpptk/OneDrive/Desktop/vulkan/build/engine/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

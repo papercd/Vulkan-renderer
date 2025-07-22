@@ -1,63 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletInverseDynamics\IDMath.cpp">
+    <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\bullet\src\BulletInverseDynamics\IDMath.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletInverseDynamics\MultiBodyTree.cpp">
+    <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\bullet\src\BulletInverseDynamics\MultiBodyTree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletInverseDynamics\details\MultiBodyTreeInitCache.cpp">
+    <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\bullet\src\BulletInverseDynamics\details\MultiBodyTreeInitCache.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletInverseDynamics\details\MultiBodyTreeImpl.cpp">
+    <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\bullet\src\BulletInverseDynamics\details\MultiBodyTreeImpl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletInverseDynamics\IDConfig.hpp">
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\bullet\src\BulletInverseDynamics\IDConfig.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletInverseDynamics\IDConfigEigen.hpp">
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\bullet\src\BulletInverseDynamics\IDConfigEigen.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletInverseDynamics\IDMath.hpp">
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\bullet\src\BulletInverseDynamics\IDMath.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletInverseDynamics\IDConfigBuiltin.hpp">
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\bullet\src\BulletInverseDynamics\IDConfigBuiltin.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletInverseDynamics\IDErrorMessages.hpp">
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\bullet\src\BulletInverseDynamics\IDErrorMessages.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletInverseDynamics\MultiBodyTree.hpp">
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\bullet\src\BulletInverseDynamics\MultiBodyTree.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletInverseDynamics\details\IDEigenInterface.hpp">
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\bullet\src\BulletInverseDynamics\details\IDEigenInterface.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletInverseDynamics\details\IDMatVec.hpp">
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\bullet\src\BulletInverseDynamics\details\IDMatVec.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletInverseDynamics\details\IDLinearMathInterface.hpp">
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\bullet\src\BulletInverseDynamics\details\IDLinearMathInterface.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletInverseDynamics\details\MultiBodyTreeImpl.hpp">
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\bullet\src\BulletInverseDynamics\details\MultiBodyTreeImpl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletInverseDynamics\details\MultiBodyTreeInitCache.hpp">
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\bullet\src\BulletInverseDynamics\details\MultiBodyTreeInitCache.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\bullet\src\BulletInverseDynamics\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\bullet\src\BulletInverseDynamics\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{6E77623E-44AB-3BFC-912B-E6C8FCBCC19A}</UniqueIdentifier>
+      <UniqueIdentifier>{002A7B2B-22DF-305C-9AAA-075AA3A266D6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{B0C7DDF2-DCF3-3306-847D-9BA642CA193D}</UniqueIdentifier>
+      <UniqueIdentifier>{768C9FC4-4644-39F8-AA7C-1F9C10D407CC}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

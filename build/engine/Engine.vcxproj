@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{BFC2B205-692D-3805-8DA1-4ABA38C3241B}</ProjectGuid>
+    <ProjectGuid>{B6A010B8-CE01-3767-954A-006774923806}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -59,27 +59,27 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\lib\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\hpptk\OneDrive\Desktop\vulkan\build\lib\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Engine.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Engine_Debug</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\lib\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\hpptk\OneDrive\Desktop\vulkan\build\lib\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Engine.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Engine</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\lib\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\hpptk\OneDrive\Desktop\vulkan\build\lib\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Engine.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Engine_MinsizeRel</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\lib\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\hpptk\OneDrive\Desktop\vulkan\build\lib\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Engine.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Engine_RelWithDebugInfo</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/1.3.296.0/Include"</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/1.4.309.0/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -100,10 +100,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;C:\VulkanSDK\1.3.296.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;C:\VulkanSDK\1.4.309.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;C:\VulkanSDK\1.3.296.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;C:\VulkanSDK\1.4.309.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -116,8 +116,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/1.3.296.0/Include"</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/1.4.309.0/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -139,10 +139,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;C:\VulkanSDK\1.3.296.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;C:\VulkanSDK\1.4.309.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;C:\VulkanSDK\1.3.296.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;C:\VulkanSDK\1.4.309.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -155,8 +155,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/1.3.296.0/Include"</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/1.4.309.0/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -178,10 +178,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;C:\VulkanSDK\1.3.296.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;C:\VulkanSDK\1.4.309.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;C:\VulkanSDK\1.3.296.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;C:\VulkanSDK\1.4.309.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -194,8 +194,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/1.3.296.0/Include"</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/1.4.309.0/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -216,10 +216,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;C:\VulkanSDK\1.3.296.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;C:\VulkanSDK\1.4.309.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glm;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\stb;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinyobjloader;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\tinygltf;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\glfw\include;C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src;C:\VulkanSDK\1.3.296.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glm;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\stb;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinyobjloader;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\tinygltf;C:\Users\hpptk\OneDrive\Desktop\vulkan\engine;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\glfw\include;C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src;C:\VulkanSDK\1.4.309.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -231,11 +231,11 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/engine/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/hpptk/OneDrive/Desktop/vulkan/engine/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/FORYOUCOM/Desktop/vulkan/my_engine -BC:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build --check-stamp-file C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/engine/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/hpptk/OneDrive/Desktop/vulkan -BC:/Users/hpptk/OneDrive/Desktop/vulkan/build --check-stamp-file C:/Users/hpptk/OneDrive/Desktop/vulkan/build/engine/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -243,12 +243,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\engine\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\hpptk\OneDrive\Desktop\vulkan\build\engine\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/engine/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/hpptk/OneDrive/Desktop/vulkan/engine/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/FORYOUCOM/Desktop/vulkan/my_engine -BC:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build --check-stamp-file C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/engine/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/hpptk/OneDrive/Desktop/vulkan -BC:/Users/hpptk/OneDrive/Desktop/vulkan/build --check-stamp-file C:/Users/hpptk/OneDrive/Desktop/vulkan/build/engine/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -256,12 +256,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\engine\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\hpptk\OneDrive\Desktop\vulkan\build\engine\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/engine/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/hpptk/OneDrive/Desktop/vulkan/engine/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/FORYOUCOM/Desktop/vulkan/my_engine -BC:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build --check-stamp-file C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/engine/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/hpptk/OneDrive/Desktop/vulkan -BC:/Users/hpptk/OneDrive/Desktop/vulkan/build --check-stamp-file C:/Users/hpptk/OneDrive/Desktop/vulkan/build/engine/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -269,12 +269,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\engine\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\hpptk\OneDrive\Desktop\vulkan\build\engine\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/engine/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/hpptk/OneDrive/Desktop/vulkan/engine/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/FORYOUCOM/Desktop/vulkan/my_engine -BC:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build --check-stamp-file C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/engine/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/hpptk/OneDrive/Desktop/vulkan -BC:/Users/hpptk/OneDrive/Desktop/vulkan/build --check-stamp-file C:/Users/hpptk/OneDrive/Desktop/vulkan/build/engine/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -282,36 +282,37 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\engine\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\hpptk\OneDrive\Desktop\vulkan\build\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\hpptk\OneDrive\Desktop\vulkan\build\engine\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Engine.cpp" />
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Engine.h" />
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Material.h" />
-    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\BufferUtils.cpp" />
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\BufferUtils.h" />
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\GPUMesh.h" />
-    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\ModelLoader.cpp" />
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\ModelLoader.h" />
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\SceneObject.h" />
-    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\VulkanContext.cpp" />
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\VulkanContext.h" />
-    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\VulkanGraphicsPipeline.cpp" />
-    <ClInclude Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\engine\Renderer\VulkanGraphicsPipeline.h" />
-    <ClCompile Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\ext\vk-bootstrap\src\VkBootstrap.cpp" />
+    <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Engine.cpp" />
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Engine.h" />
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Material.h" />
+    <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\BufferUtils.cpp" />
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\BufferUtils.h" />
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\GPUMesh.h" />
+    <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\ModelLoader.cpp" />
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\ModelLoader.h" />
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\SceneObject.h" />
+    <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\VulkanContext.cpp" />
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\VulkanContext.h" />
+    <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\VulkanGraphicsPipeline.cpp" />
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\VulkanGraphicsPipeline.h" />
+    <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src\VkBootstrap.cpp" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ZERO_CHECK.vcxproj">
-      <Project>{907AF7CA-BFD5-3B58-A10E-8278F31BADC1}</Project>
+    <ProjectReference Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\build\ZERO_CHECK.vcxproj">
+      <Project>{056D6A73-70B1-3F09-A86B-AD47FF022BDF}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\FORYOUCOM\Desktop\vulkan\my_engine\build\ext\glfw\src\glfw.vcxproj">
-      <Project>{36A36938-E003-3B6E-BD30-66B04C76CCF3}</Project>
+    <ProjectReference Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\build\ext\glfw\src\glfw.vcxproj">
+      <Project>{16B735F4-1EB7-3277-B5B3-928D4D4D9AFE}</Project>
       <Name>glfw</Name>
     </ProjectReference>
   </ItemGroup>

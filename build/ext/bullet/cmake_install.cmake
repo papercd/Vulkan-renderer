@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/ext/bullet
+# Install script for directory: C:/Users/hpptk/OneDrive/Desktop/vulkan/ext/bullet
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,14 +34,20 @@ endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/bullet" TYPE FILE FILES
-    "C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/ext/bullet/UseBullet.cmake"
-    "C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/BulletConfig.cmake"
+    "C:/Users/hpptk/OneDrive/Desktop/vulkan/ext/bullet/UseBullet.cmake"
+    "C:/Users/hpptk/OneDrive/Desktop/vulkan/build/ext/bullet/BulletConfig.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/FORYOUCOM/Desktop/vulkan/my_engine/build/ext/bullet/src/cmake_install.cmake")
+  include("C:/Users/hpptk/OneDrive/Desktop/vulkan/build/ext/bullet/src/cmake_install.cmake")
 
 endif()
 
+string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
+       "${CMAKE_INSTALL_MANIFEST_FILES}")
+if(CMAKE_INSTALL_LOCAL_ONLY)
+  file(WRITE "C:/Users/hpptk/OneDrive/Desktop/vulkan/build/ext/bullet/install_local_manifest.txt"
+     "${CMAKE_INSTALL_MANIFEST_CONTENT}")
+endif()
