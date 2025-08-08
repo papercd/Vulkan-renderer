@@ -22,6 +22,7 @@ public:
     const std::vector<VkImageView> &getSwapchainImageViews() const { return swapchainImageViews; }
     VkExtent2D getSwapchainExtent() const { return swapchainExtent; }
     VkFormat getSwapchainImageFormat() const { return swapchainImageFormat; }
+    VkFormat depthFormat;
 
 private:
     void init(GLFWwindow *window);

@@ -73,6 +73,7 @@ void VulkanContext::init(GLFWwindow *window)
     // --- SWAPCHAIN CREATION via vkbootstrap ---
     vkb::SwapchainBuilder swapchainBuilder{physicalDeviceRet, device, surface};
 
+
     auto swap_ret = swapchainBuilder
                         .use_default_format_selection()
                         .set_desired_present_mode(VK_PRESENT_MODE_FIFO_KHR) // vsync
@@ -92,6 +93,26 @@ void VulkanContext::init(GLFWwindow *window)
     swapchainImageViews = vkbSwapchain.get_image_views().value();
     swapchainImageFormat = vkbSwapchain.image_format;
     swapchainExtent = vkbSwapchain.extent;
+
+    std::vector<VkFormat> preferredDepthFormats = {
+        VK_FORMAT_D32_SFLOAT,
+        VK_FORMAT_D32_SFLOAT_S8_UINT,
+        VK_FORMAT_D24_UNORM_S8_UINT
+    };
+    
+
+    auto depthFormatRet = physicalDeviceRet.get_supported_format(
+        preferredDepthFormats,
+        VK_IMAGE_TILING_OPTIMAL,
+        VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT
+    );
+
+    if (!depthFormatRet.has_value()) {
+        throw std::runtime_error("Failed to find supported depth format");
+    }
+
+    depthFormat = depthFormatRet.value();
+
 
     std::cout << "Vulkan context initialized.\n";
 }

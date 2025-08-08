@@ -107,6 +107,86 @@ stencil buffer는 렌더링 된 원시 도형들의 위치 데이터를 저장�
 
 "Framebuffer" - 어느 시스템에 사용되는 모든 버퍼들을 모은 것을 칭하는 단어. 원시도형들이 rasterizer 단계를 거쳤으면, 카메라의 시선에서 보이는 도형들은 화면에 표시된다. (당연한 소리) 화면에 표시되는 (렌더링 되는) 것은 color buffer에 담긴 데이터이다. 보는 이가 rasterization 과정을 거치를 원시 도형을 그대로 보는 것을 방지하게 위해, double buffering이라는 기술을 사용한다. 
 
+double buffering이란? - 어느 장면에 대한 렌더링은 back buffer에서 이루어지고, back buffer에 렌더링이 다 끝난 후에 실제 화면에 표시되는 front buffer의 데이터와 교체된다. 이 교체되는 과정을 영어로 swapping이라고 하며, 이 swapping은 보통 vertical retrace 이라는 시간에 발생한다.
+
+Pipeline 을 통하는 과정 다시 보기: 
+
+점, 선, 그리고 삼각형이 어느 모델 또는 객체를 만들 때 사용되는 원시 도형들이다. Computer aided design 어플을 한 번 생각해보자. 그리고 사용자가 와플 기계에 대한 디자인을 어플을 통해서 관찰하고 있다고 보자. 기계에 대한 디자인이 이 어플을 통해서 어떻게 사용자에게 최종적으로 보여지는지에 대한 설명을 위에서 살펴본 렌더링 파이프라인 개념으로 설명할 것이다. 앞서 얘기했듯이 렌더링 파이프라인은 크게 4단계로 구성된다: application, geometry, rasterization, pixel processing. 관점이 구현되어 있는 장면이 화면 상 창에 보여지는 것이다. 우리가 가정한 예시의 와플 기계는 선과 삼각형으로 구성되어 있다. 와플 기계에는 열고 닫을 수 있는 뚜껑이 있다. 몇개의 삼각형은 기계 생산자 로고를 담은 2차원 이미지로 texturing이 되어있고, 이 예시에서 surface shading은 geometry stage에서 발생하고, texturing은 rasterization 단계에서 발생한다. 
+
+1. Application: 
+CAD (computer assisted design) 어플에서 사용자는 모델의 여러 부분들을 선택하고 움직일 수 있게끔 해준다. 예를 들면 , 사용자가 와플 기계의 뚜껑을 선택해서 마우스 움직일 수 있다. 어플리케이션 단계에서는 이 마우스 움직임을 그에 맞는 회전 매트릭스를 만들어내고, 이 매트릭스가 모델의 뚜껑 부분에 렌더링 될 때 제대로 적용되는 지를 확인해야 한다. 다른 예시로는: 와플 기계를 여러 관점에서 보여줄 수 있게끔 카메라를 지정된 경로로 움직이는 애니메이션이 실행된다고 치자. 그럼 이때 어플리케이션 단계에서 시간에 중속된 카메라의 위치, 카메라 시선의 방향과 같은 파라메터들을 업데이트 해줘야 할 것이다. 렌더링 할 각 프레임에 대해서 어플리케이션 단계에서는 다음 단계로 넘겨줄 카메라의 위치, 라이팅, 모델의 원시 도형들을 준비해야 할 것이다. 
+
+2. Geometry processing: 
+Perspective viewing 을 위해서 projection matrix (투사 매트릭스)를 어플리케이션 단계에서 제공해줬다고 가정할 것이다. 그리고 렌더링 할 장면의 각 객체에 대해서 어플리케이션 단계에서 view transform과 각 객체의 위치와 객체의 정위를 나타내는 매트릭스를 연산했을 것이다. 우리의 예시에서는 와플 기계의 베이스와 뚜껑 각각 매트릭스 하나씩 있을 것이다. geometry 단계에서는 객체의 점들과 노말들이 이 매트릭스 연산에 의해 view space내로 변환될 것이다. 그리고 나면 점들에서 material과 장면 내에  빛의 특성을 사용해서 shading 또는 다른 연산들이 처리될 수 있다. 그런 다음 사용자가 제공한 (application 단계에서) projection 매트릭스를 사용해서 projection (투사)가 처리되고, 이는 장면 내에 객체를 눈이 실제를 볼 형태로 단위 큐브 space으로 변환한다. 큐브 밖에 있는 모든 원시 도형들은 버려진다. 이 큐브의 면들과 겹치는 부분이 있는 도형들은 clipping과정을 통해서 원시 도형들을 구성하는 모든 점들이 이 큐브 내에 위치하도록 변환한다. 그런 다음 큐브 내에 모든 점들을 렌더링 할 창에 매핑된다. 각 삼각형과 점에 대한 처리 과정이 다 끝나고 나면 데이터가 rasterization 단계로 넘겨진다. 
+
+3. Rasterization
+geometry 단계에서 clipping단계를 살아남은 원시 도형들은 rasterization 과정을 거치는데, 이는 pixel processing 단계로 넘겨질 도형 내에 위치한 pixel들을 찾는다는 것을 의미한다. 
+
+4. Pixel processing: 
+이 단계의 목적은 볼 수 있는 각 원시도형을 구성하는 픽셀의 색을 계산하는 것이다. 텍스쳐가 입혀진 삼각형은 그 텍스쳐의 색을 고려해서 색이 계산된다. 가시성은 Z-buffer 추가로  discard 및 stencil 테스트를 사용해서 해결한다. 장면의 각 객체는 차례로 처리되고, 마지막으로 생성된 이미지가 화면 상에 표시된다. 
+
+
+The programmable shader stage (프로그래밍 가능한 쉐이더 단계들) 
+현대 쉐이더 프로그램들은 통일된 쉐이더 디자인을 가진다. 따라서 vertex, pixel(fragment?) geometry, 그리고 tessellation 관련 쉐이더들은 프로그래밍 모델을 공유한다. 이건 무슨 뜻이냐? 모두 똑같은 ISA (instruction set architecture)를 가진다. DirectX API에서는 이 모델을 구현하는 프로세서를 common-shader core이라고 부르고, 그 코어들을 가진 GPU는 unified shader architecture를 가진다고 말한다. 이 아키텍쳐의 취지는 쉐이더 프로세서들은 다양한 역할을 수행하는데에 사용될 수 있고, GPU가 이 코어들을 적합한데에 할당한다. 예를 들어 아주 작은 삼각 원시 도형들로 이루어져있는 매쉬들은 큰 사각형들로 이루어져있는 매쉬들보다 vertex shader 처리량이 많을 것이고, vertex와  pixel 쉐이더 코어들이 나누어져있는 GPU에서는 남아도는 코어들이 없게끔 하는 최적의 작업 할당이 어느정도 정해져 있는 반면, unified 쉐이더 코어를 가진 GPU에서는 작업을 분배하는 것이 비교적 자유롭다.
+
+가장 기본적인 데이터 타입은 바로 32비트 single-precision floating point 스칼라와 벡터 타입이다. (32 비트가 single-precision, 64비트가 double-precision 이다.) 현대 GPU에서는 32비트 정수와 64비트 floating point 데이터 타입도 지원한다. floating point 벡터는 보통 위치 (xyzw으로 표현하는), 노말, 매트릭스 행과 열, 색(rgba), 텍스쳐 좌표 (uvwq)와 같은 데이터를 표현하는데에 사용한다. 정수는  보통 카운터나, 인덱스나, 비트 마스크와 같은 데이터를 나타나느데에 사용한다. 여러 데이터가 뭉친 형태의 struct, array, matrix 와 같은 데이터도 제공한다. 
+
+"draw call" 은 그래픽스 API를 '불러' 원시 도형의 묶음을 그리게 한다. 프로그래밍이 가능한 쉐이더 스테이지에는 크게 두가지의 인풋 타입이 있다: 1. uniform 2.varying. 이름에 걸맞게 uniform은 draw call이 끝날 때까지 동일하게 유지되는 값이고, varying input은 원시 도형들의 점이나, rasterization 단계에서 오는 정보를 얘기한다. 다 다르기 때문에 이름이 'varying'. 예를 들면 픽셀 쉐이더에서는 어느 빛 객체의 색을 uniform값으로 제공할 수 있고, 어느 원시 삼각형의 표면의 위치는 varying 값으로 제공할 수 있다. 
+
+텍스쳐는 특별한 형태의 uniform 값이다. 현대 GPU에서는 그냥 어느 데이터 타입의 array라고 생각하면 편하다. GPU의 virtual machine는 각기 다른 데이터 인풋과 아웃풋을 담을 수 있는 레지스터를 지니고 있는데 '사용 가능한' uniform을 위한 상수 register가 varying input과 output을 위한 register보다 많다. 이유는? - 픽셀 또는 점에 대한 input 과 output 정보가 상당히 많기 때문에 제한이 있기 때문. Virtual machine은 또한 general-purpose temporary register를 가지고  있는데, 이는 여러 다른 operation을 위해 남겨두는 register를 의미한다. Virtual machine의 모든 register는 temporary register에 담을 수 있는 정수 값으로 인덱싱이 가능하다. 
+
+자주 사용되는 연산자 중에 기본적인 사칙연산은 여느 프로그래밍 언어처럼 (* , / , -, + ) 제공하고, 함수 형태로 여러 연산을 제공하기도 한다. (atan(), sqrt(), log()). GPU의 구조를 고려해 이러한 연산은 최적화가 되어있다.벡터 normalization, reflection, cross product, matrix transpose와 determinant 계산과 같은 더 복잡한 계산을 위한 함수들도 존재한다.
+
+쉐이더는 두가지의 flow control을 제공한다: 1.정적 flow control - 유니폼 값에 의해 코드의 흐름이 바뀌는 경우. 이 경우 draw call 동안의 코드의 흐름이 정적이라는 뜻. 2.dynamic flow control - varying input에 의해 코드 처리의 흐름이 달라지는 경우. 각 fragment에서 데이터가 다르게 처리된다는 의미. 
+
+"flow control"은 코드 처리의 흐름을 변경하기 위해 브랜칭 instruction을 사용하는 것을 의미한다. flow control과 관련된 instruction은 보통 if 문 과 case 문과 같은 high-level 구조를 구현하는데에 사용된다. 
+
+프로그래밍이 가능한 쉐이딩 및 여러 API의 발전: 
+프로그래밍이 가능한 쉐이딩을 위한 프레임워크라는 아이디어는 1984년 Cook의 쉐이딩 tree에서부터 시작한다. 여기서 픽사의 렌더러인 RenderMan Shading Language가 생겨났고, 이는 영화 프로듀싱 렌더링을 위해  Open Shading Language과 함께 아직도 사용된다. GPU라고 불린 최초의 하드웨어는 바로 NVIDIA의 GeForce256이다. 하지만 프로그래밍은 가능치 않았다. configurable (구성 가능) 하긴 했다. 2001년 초반부에 NVIDIA GeForce 3의 등장으로 프로그래밍이 가능한 vertex shader를 지원하는 GPU가 출현했다. 
+
+The Vertex Shader: 
+그래픽스 파이프라인의 여러 단계 중 프로그래밍이 가능한 첫 단계이다. 물론 이 단계 전에도 데이터 manipulation이 발생하는 input assembler 단계가 있다. 여러 데이터 스트림을 같이 묶어 다른 모양의 객체 또는 원시 도형을 만들어낼 수 있다. 예를 들면 어느 객체는 위치를 나타내는 array 하나와 색 데이터를 나타내는 array 하나로 만들어 낼 수 있다. 다른 객체는 똑같은 위치 데이터 array (다른 모델 transform 매트릭스와 같이) 그리고 다른 색 데이터 array로 다른 객체를 만들어 낼수 있는 것이다. input assembler에는 또한 instancing을 위해 필요한 단계이다. 
+
+"The vertex shader provides a way to modify, create, or ignore values associated with a triangle's vertex, such as its color, normal, texture coordinates, and position. 
+
+- 버텍스 쉐이더는 모델을 구성하는 원시 삼각형의 각 점에 대한 색, 노말, 텍스쳐 좌표, 위치와 같은 데이터를 변경 , 새로 만들거나, 무시하는 등 데이터를 manipulate 할 수 있는 방법을 제공한다. 
+
+보통 버텍스 쉐이더 프로그램은 모델의 버텍스를 모델 공간에서 클립 공간으로 변환하는데, 버텍스 쉐이더는 최소한 이 기능은 수행해야 한다. 
+
+
+The tessellation stage:
+
+tessellation 단계는 곡선을 렌더링 할 수 있게끔 해준다. gpu의 역할은 보통 모델의 표면 description을 가지고 삼각형 덩어리로 변환을 시키는 것이다. 이 단계는 부수적인 기능을 가능케 하는 단계 중 하나이고 OpenGL 4.0과 OpenglGL Es 3.2 부터 사용이 가능해진 기능이다. 
+
+tessellation 기능을 쓰면 여러 장점이 있는데, 일단 모델을 렌더링 할 때 필요한 삼각형을 직접 제공하는 것보다 곡선 표면에 대한 description을 제공하는게 메모리 사용량이 적다. 적은 메모리 사용량 덕분에 - CPU와 GPU 사이 버스 상 데이터 전송이 병목이 되는 것을 방지할 수 있다. 예를 들어 어떤 애니메이션을 입힌 모델을 렌더링 할때 매 프레임 모델의 정보가 바뀌는데 데이터 크기가 큰 경우 렌더가 느려질 수 있는데, 모델을 구성하는 삼각형 데이터를 전부 보내지 않고 큰 프레임만 보낸 다음 GPU에서 tessellation을 활용해 모델을 좀더 작은 삼각형으로 나누어 렌더링하면 CPU에서 GPU로 보내는 데이터 양을 줄이는 대신 GPU에서 더 많은 작업을 offset하는 방식으로 렌더링 할 수 있다. 
+
+또한 모델의 표면을 장면을 바라보는 뷰에 따라 효율적으로 렌더링을 할 수 있게 되는데, 예를 들면 카메라에서 멀리 떨어져 있는 구가 있다면, 그 구를 렌더링 하는데에 필요한 삼각형의 수가 적어질 것이다. 가까이 있을 때는 표면을 구성하는 삼각형의 개수가 또 늘어난다. level of detail을 컨트롤 할 수 있는 기능은 어느 그래픽스 어플이든 그것의 성능을 제어하는데 필수적인 기능이다. 
+
+tessellation 단계는 또 세개의 세부적인 단계로 나눌 수 있는데, 이는 
+
+1. hull shader 
+2. tessellator 
+3. domain shader 
+
+이다. 모델을 이루는 곡선 또는 표면들을 지정하고 tessellation을 적용하는 방법은 따로 설명해야 될 개념이다. 
+먼저, 첫 번째 단계인 hull shader에서는 patch 원시 도형이라는 것이 입력 값으로 주어진다. patch primitive은 더 작게 나눈 표면 (subdivision surface - Bezier patch)을 이루어내는 제어점 (control points)을 나타낸다. 
+
+Hull shader는 크게 두 기능이 있다. 먼저, 다음 단계인 tessellator에게 몇개의 삼각형이 만들어져야 하는지 알려주고, 어떤 형식 (configuration)으로 만들어야 하는지 지정해준다. 두 번째는 subdivision surface 을 이루는 각 control point에 '프로세싱'을 처리한다. 그리고, 추가적으로 입력값으로 주어지는 patch description을 control point를 추가하거나 제거함으로써 수정할 수도 있다. Hull shader의 출력 값은 제어점과 tessellation 제어 데이터으로, 다음 단계인 domain shader으로 인계한다.
+
+tessellator는 fixed-function 단계로, 프로그래밍이 불가한 단계이다. 여기서 domain shader가 처리할, 더 디테일하게, 더 많은 원시 도형으로 세분화된 모델을 이루는 점들을 만들어낸다. Hull shader는 또 tesellator에게 어떤 tessellation 표면이 요구되는지를 알려준다 - 삼각형, 사각형, 또는 isoline. Isoline은 선 strip의 집합으로, 털 렌더링을 위해 사용되기도 한다. Hull shader에서 출력되는 다른 값으로는 tessellation factor가 있는데, 이는 크게 두가지로 이루어져있다. a. inner edge, b. outer edge. 
+inner factor는 원시 삼각형 또는 사각형 안에서 tessellation이 얼마나 이루어지는지를 나타내고, outer factor는 각 와부 edge가 얼마나 나뉘어지는지를 나타낸다. 
+
+Hull shader는 항상 어느 patch와 같이 생성된 제어점의 위치 데이터를 출력한다. 하지만 또한 어느 patch가 버려져야 한다는 것을 tessellator에게 0또는 그보다 작은 outer tessellation 값을 전달함으로써 patch discard를 야기할 수 있다. 그러지 않으면 tessellator는 hull shader으로부터 받은 입력값으로 매쉬를 생성하고 domain shader에게 전달한다. 
+
+hull shader에서 생성하는 모델의 곡선의 표면에 대한 제어점은 domain shader의 각 invocation에서 모델을 이루는 각 vertex에 대한 출력값을 생성하는데에 사용된다. Domain shader는 vertex shader와 비슷한 데이터 흐름 패턴을 가지고 있다. 각 입력 vertex에 대한 값들을 tessellator에서 처리하고 그에 해당하는 output vertex를 생성한다. 생성된 삼각형들은 파이프라인의 다음 단계로 인계된다.
+
+되게 복잡한 구조의 시스템처럼 들리지만 사실 효율을 위해 이렇게 설계되었고, 각 쉐이더는 생각보다 간단하게 구성될 수 있다. 
+hull shader를 거치는 입력 patch는 많은 경우 아주 미미하게 변경되거나 아예 변경되지 않는다. 이 쉐이더는 또한 입력 patch의 추정 거리 또는 화면 크기를 사용해 tessellation factor를 동적으로 계산할 수 있다. 이는 terrain rendering에서 보통 많이 사용된다. 
+
+ 
+
+
+
 
 벌컨 이해하기 
 
