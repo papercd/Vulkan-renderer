@@ -27,16 +27,19 @@ SceneObject loadGLTFModelToSceneObject(const std::string &path, VkDevice device,
 
     std::vector<Material *> materials(model.images.size());
 
-    for (size_t i = 0; i < model.images.size(); ++i)
+    for (size_t i = 0; i < model.materials.size(); ++i)
     {
-        materials[i] = createMaterialFromGLTFImage(
-            model.images[i],
-            device,
-            physicalDevice,
-            commandPool,
-            graphicsQueue,
-            descriptorPool,
-            descriptorSetLayout);
+        const auto& mat = model.materials[i];
+        materials[i] = createMaterialFromGLTFTextures(
+                mat,
+                model,
+                device,
+                physicalDevice,
+                commandPool,
+                graphicsQueue,
+                descriptorPool,
+                descriptorSetLayout
+        );
     }
 
     for (const auto &mesh : model.meshes)
@@ -137,8 +140,9 @@ void transitionImageLayout(VkCommandBuffer cmd, VkImage image, VkImageLayout old
                          0, 0, nullptr, 0, nullptr, 1, &barrier);
 }
 
-Material *createMaterialFromGLTFImage(
-    const tinygltf::Image &gltfImage,
+Material* createMaterialFromGLTFTextures(
+    const tinygltf::Material& gltfMaterial,
+    const tinygltf::Model& model,
     VkDevice device,
     VkPhysicalDevice physicalDevice,
     VkCommandPool commandPool,
@@ -146,135 +150,176 @@ Material *createMaterialFromGLTFImage(
     VkDescriptorPool descriptorPool,
     VkDescriptorSetLayout descriptorSetLayout)
 {
-    Material *mat = new Material();
+    Material* mat = new Material();
 
-    VkDeviceSize imageSize = gltfImage.image.size();
+    auto loadImage = [&](const tinygltf::Image& gltfImage, VkImage& image, VkDeviceMemory& memory, VkImageView& view, VkSampler& sampler) {
+        VkDeviceSize imageSize = gltfImage.image.size();
 
-    // 1. Create staging buffer
-    VulkanBuffer staging = createBuffer(
-        device, physicalDevice, imageSize,
-        VK_BUFFER_USAGE_TRANSFER_SRC_BIT,
-        VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
-    copyDataToBuffer(device, staging.memory, gltfImage.image.data(), imageSize);
+        VulkanBuffer staging = createBuffer(
+            device, physicalDevice, imageSize,
+            VK_BUFFER_USAGE_TRANSFER_SRC_BIT,
+            VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
+        copyDataToBuffer(device, staging.memory, gltfImage.image.data(), imageSize);
 
-    // 2. Create image
-    VkImageCreateInfo imageInfo{VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO};
-    imageInfo.imageType = VK_IMAGE_TYPE_2D;
-    imageInfo.extent.width = gltfImage.width;
-    imageInfo.extent.height = gltfImage.height;
-    imageInfo.extent.depth = 1;
-    imageInfo.mipLevels = 1;
-    imageInfo.arrayLayers = 1;
-    imageInfo.format = VK_FORMAT_R8G8B8A8_SRGB;
-    imageInfo.tiling = VK_IMAGE_TILING_OPTIMAL;
-    imageInfo.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
-    imageInfo.usage = VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT;
-    imageInfo.samples = VK_SAMPLE_COUNT_1_BIT;
+        VkImageCreateInfo imageInfo{VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO};
+        imageInfo.imageType = VK_IMAGE_TYPE_2D;
+        imageInfo.extent.width = gltfImage.width;
+        imageInfo.extent.height = gltfImage.height;
+        imageInfo.extent.depth = 1;
+        imageInfo.mipLevels = 1;
+        imageInfo.arrayLayers = 1;
+        imageInfo.format = VK_FORMAT_R8G8B8A8_SRGB;
+        imageInfo.tiling = VK_IMAGE_TILING_OPTIMAL;
+        imageInfo.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
+        imageInfo.usage = VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT;
+        imageInfo.samples = VK_SAMPLE_COUNT_1_BIT;
 
-    vkCreateImage(device, &imageInfo, nullptr, &mat->image);
+        vkCreateImage(device, &imageInfo, nullptr, &image);
 
-    VkMemoryRequirements memReqs;
-    vkGetImageMemoryRequirements(device, mat->image, &memReqs);
+        VkMemoryRequirements memReqs;
+        vkGetImageMemoryRequirements(device, image, &memReqs);
 
-    VkMemoryAllocateInfo allocInfo{VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO};
-    allocInfo.allocationSize = memReqs.size;
+        VkMemoryAllocateInfo allocInfo{VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO};
+        allocInfo.allocationSize = memReqs.size;
 
-    // Find memory type
-    VkPhysicalDeviceMemoryProperties memProps;
-    vkGetPhysicalDeviceMemoryProperties(physicalDevice, &memProps);
-    for (uint32_t i = 0; i < memProps.memoryTypeCount; ++i)
-    {
-        if ((memReqs.memoryTypeBits & (1 << i)) &&
-            (memProps.memoryTypes[i].propertyFlags & VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT))
-        {
-            allocInfo.memoryTypeIndex = i;
-            break;
+        VkPhysicalDeviceMemoryProperties memProps;
+        vkGetPhysicalDeviceMemoryProperties(physicalDevice, &memProps);
+        for (uint32_t i = 0; i < memProps.memoryTypeCount; ++i) {
+            if ((memReqs.memoryTypeBits & (1 << i)) &&
+                (memProps.memoryTypes[i].propertyFlags & VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT)) {
+                allocInfo.memoryTypeIndex = i;
+                break;
+            }
         }
+
+        vkAllocateMemory(device, &allocInfo, nullptr, &memory);
+        vkBindImageMemory(device, image, memory, 0);
+
+        // Transition layout and copy
+        VkCommandBufferAllocateInfo allocInfoCmd{VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO};
+        allocInfoCmd.level = VK_COMMAND_BUFFER_LEVEL_PRIMARY;
+        allocInfoCmd.commandPool = commandPool;
+        allocInfoCmd.commandBufferCount = 1;
+
+        VkCommandBuffer cmd;
+        vkAllocateCommandBuffers(device, &allocInfoCmd, &cmd);
+
+        VkCommandBufferBeginInfo beginInfo{VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO};
+        beginInfo.flags = VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT;
+        vkBeginCommandBuffer(cmd, &beginInfo);
+
+        transitionImageLayout(cmd, image, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
+
+        VkBufferImageCopy region{};
+        region.imageSubresource.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
+        region.imageSubresource.mipLevel = 0;
+        region.imageSubresource.baseArrayLayer = 0;
+        region.imageSubresource.layerCount = 1;
+        region.imageExtent = {static_cast<uint32_t>(gltfImage.width), static_cast<uint32_t>(gltfImage.height), 1};
+
+        vkCmdCopyBufferToImage(cmd, staging.buffer, image, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, 1, &region);
+
+        transitionImageLayout(cmd, image, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
+
+        vkEndCommandBuffer(cmd);
+
+        VkSubmitInfo submit{VK_STRUCTURE_TYPE_SUBMIT_INFO};
+        submit.commandBufferCount = 1;
+        submit.pCommandBuffers = &cmd;
+        vkQueueSubmit(graphicsQueue, 1, &submit, VK_NULL_HANDLE);
+        vkQueueWaitIdle(graphicsQueue);
+        vkFreeCommandBuffers(device, commandPool, 1, &cmd);
+
+        // Create image view
+        VkImageViewCreateInfo viewInfo{VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO};
+        viewInfo.image = image;
+        viewInfo.viewType = VK_IMAGE_VIEW_TYPE_2D;
+        viewInfo.format = VK_FORMAT_R8G8B8A8_SRGB;
+        viewInfo.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
+        viewInfo.subresourceRange.levelCount = 1;
+        viewInfo.subresourceRange.layerCount = 1;
+
+        vkCreateImageView(device, &viewInfo, nullptr, &view); // ✅
+
+
+        // Create sampler
+        VkSamplerCreateInfo samplerInfo{VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO};
+        samplerInfo.magFilter = VK_FILTER_LINEAR;
+        samplerInfo.minFilter = VK_FILTER_LINEAR;
+        samplerInfo.addressModeU = samplerInfo.addressModeV = samplerInfo.addressModeW = VK_SAMPLER_ADDRESS_MODE_REPEAT;
+        samplerInfo.anisotropyEnable = VK_FALSE;
+        samplerInfo.maxAnisotropy = 1;
+        samplerInfo.borderColor = VK_BORDER_COLOR_INT_OPAQUE_BLACK;
+        samplerInfo.unnormalizedCoordinates = VK_FALSE;
+
+        vkCreateSampler(device, &samplerInfo, nullptr, &sampler);
+    };
+
+    // Load base color texture
+    if (gltfMaterial.pbrMetallicRoughness.baseColorTexture.index >= 0) {
+        const auto& img = model.images[gltfMaterial.pbrMetallicRoughness.baseColorTexture.index];
+        loadImage(img, mat->image, mat->imageMemory, mat->imageView, mat->sampler);
     }
 
-    vkAllocateMemory(device, &allocInfo, nullptr, &mat->imageMemory);
-    vkBindImageMemory(device, mat->image, mat->imageMemory, 0);
+    // Load metallic-roughness texture
+    if (gltfMaterial.pbrMetallicRoughness.metallicRoughnessTexture.index >= 0) {
+        const auto& img = model.images[gltfMaterial.pbrMetallicRoughness.metallicRoughnessTexture.index];
+        loadImage(img, mat->mrImage, mat->mrMemory, mat->mrImageView, mat->mrSampler);
+    }
 
-    // 3. Transition + Copy
-    VkCommandBufferAllocateInfo allocInfoCmd{VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO};
-    allocInfoCmd.level = VK_COMMAND_BUFFER_LEVEL_PRIMARY;
-    allocInfoCmd.commandPool = commandPool;
-    allocInfoCmd.commandBufferCount = 1;
-
-    VkCommandBuffer cmd;
-    vkAllocateCommandBuffers(device, &allocInfoCmd, &cmd);
-
-    VkCommandBufferBeginInfo beginInfo{VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO};
-    beginInfo.flags = VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT;
-    vkBeginCommandBuffer(cmd, &beginInfo);
-
-    transitionImageLayout(cmd, mat->image, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
-
-    VkBufferImageCopy region{};
-    region.imageSubresource.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
-    region.imageSubresource.mipLevel = 0;
-    region.imageSubresource.baseArrayLayer = 0;
-    region.imageSubresource.layerCount = 1;
-    region.imageExtent = {static_cast<uint32_t>(gltfImage.width), static_cast<uint32_t>(gltfImage.height), 1};
-
-    vkCmdCopyBufferToImage(cmd, staging.buffer, mat->image, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, 1, &region);
-
-    transitionImageLayout(cmd, mat->image, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
-
-    vkEndCommandBuffer(cmd);
-
-    VkSubmitInfo submit{VK_STRUCTURE_TYPE_SUBMIT_INFO};
-    submit.commandBufferCount = 1;
-    submit.pCommandBuffers = &cmd;
-    vkQueueSubmit(graphicsQueue, 1, &submit, VK_NULL_HANDLE);
-    vkQueueWaitIdle(graphicsQueue);
-    vkFreeCommandBuffers(device, commandPool, 1, &cmd);
-
-    // 4. Image view
-    VkImageViewCreateInfo viewInfo{VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO};
-    viewInfo.image = mat->image;
-    viewInfo.viewType = VK_IMAGE_VIEW_TYPE_2D;
-    viewInfo.format = VK_FORMAT_R8G8B8A8_SRGB;
-    viewInfo.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
-    viewInfo.subresourceRange.levelCount = 1;
-    viewInfo.subresourceRange.layerCount = 1;
-
-    vkCreateImageView(device, &viewInfo, nullptr, &mat->imageView);
-
-    // 5. Sampler
-    VkSamplerCreateInfo samplerInfo{VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO};
-    samplerInfo.magFilter = VK_FILTER_LINEAR;
-    samplerInfo.minFilter = VK_FILTER_LINEAR;
-    samplerInfo.addressModeU = samplerInfo.addressModeV = samplerInfo.addressModeW = VK_SAMPLER_ADDRESS_MODE_REPEAT;
-    samplerInfo.anisotropyEnable = VK_FALSE;
-    samplerInfo.maxAnisotropy = 1;
-    samplerInfo.borderColor = VK_BORDER_COLOR_INT_OPAQUE_BLACK;
-    samplerInfo.unnormalizedCoordinates = VK_FALSE;
-
-    vkCreateSampler(device, &samplerInfo, nullptr, &mat->sampler);
-
+    // Allocate descriptor set
     VkDescriptorSetAllocateInfo allocInfoDesc{VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO};
     allocInfoDesc.descriptorPool = descriptorPool;
     allocInfoDesc.descriptorSetCount = 1;
     allocInfoDesc.pSetLayouts = &descriptorSetLayout;
+    vkAllocateDescriptorSets(device, &allocInfoDesc, &mat->descriptorSet);
 
-    if (vkAllocateDescriptorSets(device, &allocInfoDesc, &mat->descriptorSet) != VK_SUCCESS)
-        throw std::runtime_error("Failed to allocate descriptor set.");
+    // Descriptor writes
+    std::array<VkWriteDescriptorSet, 2> writes{};
 
-    VkDescriptorImageInfo descImageInfo{};
-    descImageInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
-    descImageInfo.imageView = mat->imageView;
-    descImageInfo.sampler = mat->sampler;
+    VkDescriptorImageInfo baseInfo{};
+    baseInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+    baseInfo.imageView = mat->imageView;
+    baseInfo.sampler = mat->sampler;
 
-    VkWriteDescriptorSet write{VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET};
-    write.dstSet = mat->descriptorSet;
-    write.dstBinding = 0;
-    write.dstArrayElement = 0;
-    write.descriptorCount = 1;
-    write.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
-    write.pImageInfo = &descImageInfo;
+    writes[0].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+    writes[0].dstSet = mat->descriptorSet;
+    writes[0].dstBinding = 0;
+    writes[0].descriptorCount = 1;
+    writes[0].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    writes[0].pImageInfo = &baseInfo;
 
-    vkUpdateDescriptorSets(device, 1, &write, 0, nullptr);
+    VkDescriptorImageInfo mrInfo{};
+    mrInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+    mrInfo.imageView = mat->mrImageView;
+    mrInfo.sampler = mat->mrSampler;
+
+    writes[1].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+    writes[1].dstSet = mat->descriptorSet;
+    writes[1].dstBinding = 1;
+    writes[1].descriptorCount = 1;
+    writes[1].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    writes[1].pImageInfo = &mrInfo;
+
+    uint32_t writeCount = 1;
+
+    if (gltfMaterial.pbrMetallicRoughness.metallicRoughnessTexture.index >= 0) {
+        // Fill writes[1] like you're doing now
+        writes[1].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+        writes[1].dstSet = mat->descriptorSet;
+        writes[1].dstBinding = 1;
+        writes[1].descriptorCount = 1;
+        writes[1].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+        writes[1].pImageInfo = &mrInfo;
+
+        writeCount = 2; // ✅ Tell Vulkan you want to write both
+    }
+
+    vkUpdateDescriptorSets(device, writeCount, writes.data(), 0, nullptr);
+
+
+
+    //kUpdateDescriptorSets(device, static_cast<uint32_t>(writes.size()), writes.data(), 0, nullptr);
 
     return mat;
 }

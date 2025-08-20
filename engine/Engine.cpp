@@ -41,7 +41,7 @@ void Engine::init()
     vkContext = new VulkanContext(this->window);
 
     std::cout << "creating Vulkan graphics pipeline..." << std::endl;
-    this->pipeline = new VulkanGraphicsPipeline(vkContext->getDevice(), vkContext->getSwapchainImageFormat());
+    this->pipeline = new VulkanGraphicsPipeline(vkContext->getDevice(), vkContext->getSwapchainImageFormat(),vkContext->getDepthFormat());
 
     std::cout << "creating command pool and buffers..." << std::endl;
     // 1. Create Command Pool
@@ -189,6 +189,7 @@ void Engine::drawFrame(
     // === [5] Begin rendering ===
     std::cout << "[Frame] Beginning dynamic rendering..." << std::endl;
     VkClearValue clearColor = {{0.1f, 0.1f, 0.1f, 1.0f}};
+
     VkRenderingAttachmentInfo colorAttachment{VK_STRUCTURE_TYPE_RENDERING_ATTACHMENT_INFO};
     colorAttachment.imageView = imageViews[imageIndex];
     colorAttachment.imageLayout = VK_IMAGE_LAYOUT_ATTACHMENT_OPTIMAL;
@@ -196,11 +197,19 @@ void Engine::drawFrame(
     colorAttachment.storeOp = VK_ATTACHMENT_STORE_OP_STORE;
     colorAttachment.clearValue = clearColor;
 
+    VkRenderingAttachmentInfo depthAttachment{VK_STRUCTURE_TYPE_RENDERING_ATTACHMENT_INFO};
+    depthAttachment.imageView = vkContext->getDepthImageViews()[imageIndex];
+    depthAttachment.imageLayout = VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_OPTIMAL;
+    depthAttachment.loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR;
+    depthAttachment.storeOp = VK_ATTACHMENT_STORE_OP_DONT_CARE;
+    depthAttachment.clearValue.depthStencil = {1.0f, 0};
+
     VkRenderingInfo renderInfo{VK_STRUCTURE_TYPE_RENDERING_INFO};
     renderInfo.renderArea = {{0, 0}, extent};
     renderInfo.layerCount = 1;
     renderInfo.colorAttachmentCount = 1;
     renderInfo.pColorAttachments = &colorAttachment;
+    renderInfo.pDepthAttachment = &depthAttachment;
 
     vkCmdBeginRendering(commandBuffer, &renderInfo);
 
@@ -230,8 +239,13 @@ void Engine::drawFrame(
             vkCmdBindVertexBuffers(commandBuffer, 0, 1, &gpu.vertexBuffer.buffer, offsets);
             vkCmdBindIndexBuffer(commandBuffer, gpu.indexBuffer.buffer, 0, VK_INDEX_TYPE_UINT32);
 
-            glm::mat4 mvp = proj * view * obj.transform;
-            vkCmdPushConstants(commandBuffer, pipeline.getLayout(), VK_SHADER_STAGE_VERTEX_BIT, 0, sizeof(glm::mat4), &mvp);
+            CustomPushConstants push{};
+            push.model = obj.transform; 
+            push.viewProj = proj * view; 
+            push.lightPos = glm::vec3(10.0f,10.0f,10.0f);
+            push.viewPos = cameraPos;
+
+            vkCmdPushConstants(commandBuffer, pipeline.getLayout(), VK_SHADER_STAGE_VERTEX_BIT, 0, sizeof(CustomPushConstants), &push);
             if (gpu.material && gpu.material->descriptorSet != VK_NULL_HANDLE)
             {
                 vkCmdBindDescriptorSets(

@@ -5,7 +5,7 @@
 class VulkanGraphicsPipeline
 {
 public:
-    VulkanGraphicsPipeline(VkDevice device, VkFormat colorFormat);
+    VulkanGraphicsPipeline(VkDevice device, VkFormat colorFormat,VkFormat depthFormat);
     ~VulkanGraphicsPipeline();
 
     VkPipeline getPipeline() const { return pipeline; }
@@ -19,6 +19,7 @@ private:
     VkPipelineLayout pipelineLayout = VK_NULL_HANDLE;
     VkDescriptorSetLayout descriptorSetLayout = VK_NULL_HANDLE;
     VkDescriptorPool descriptorPool = VK_NULL_HANDLE;
+    VkFormat depthFormat;
 
     VkShaderModule loadShaderModule(const std::string &filepath);
     void createGraphicsPipeline(VkFormat colorFormat);

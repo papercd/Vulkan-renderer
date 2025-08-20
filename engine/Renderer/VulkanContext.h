@@ -22,7 +22,10 @@ public:
     const std::vector<VkImageView> &getSwapchainImageViews() const { return swapchainImageViews; }
     VkExtent2D getSwapchainExtent() const { return swapchainExtent; }
     VkFormat getSwapchainImageFormat() const { return swapchainImageFormat; }
-    VkFormat depthFormat;
+
+    VkFormat getDepthFormat() const {return depthFormat;}
+    const std::vector<VkImageView>& getDepthImageViews() const { return depthImageViews; }
+
 
 private:
     void init(GLFWwindow *window);
@@ -36,9 +39,14 @@ private:
     VkQueue graphicsQueue = VK_NULL_HANDLE;
     VkQueue presentQueue = VK_NULL_HANDLE;
 
+    std::vector<VkImage> depthImages; 
+    std::vector<VkDeviceMemory> depthImageMemories; 
+    std::vector<VkImageView> depthImageViews;
+
     VkSwapchainKHR swapchain;
     std::vector<VkImage> swapchainImages;
     std::vector<VkImageView> swapchainImageViews;
     VkFormat swapchainImageFormat;
     VkExtent2D swapchainExtent;
+    VkFormat depthFormat;
 };

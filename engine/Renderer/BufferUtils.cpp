@@ -2,6 +2,13 @@
 #include <stdexcept>
 #include <cstring>
 
+struct PushConstants {
+    glm::mat4 model; 
+    glm::mat4 viewProj; 
+    glm::vec3 lightPos; 
+    glm::vec3 viewPos;
+};
+
 uint32_t findMemoryType(VkPhysicalDevice physicalDevice, uint32_t typeFilter, VkMemoryPropertyFlags props)
 {
     VkPhysicalDeviceMemoryProperties memProps;

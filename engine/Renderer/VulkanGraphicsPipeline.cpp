@@ -9,6 +9,7 @@
 #include <stdexcept>
 #include <array>
 #include "Renderer/ModelLoader.h" // for Vertex
+#include "BufferUtils.h"
 
 static std::vector<char> readFile(const std::string &path)
 {
@@ -22,8 +23,8 @@ static std::vector<char> readFile(const std::string &path)
     return buffer;
 }
 
-VulkanGraphicsPipeline::VulkanGraphicsPipeline(VkDevice device, VkFormat colorFormat)
-    : device(device)
+VulkanGraphicsPipeline::VulkanGraphicsPipeline(VkDevice device, VkFormat colorFormat,VkFormat depthFormat)
+    : device(device) , depthFormat(depthFormat)
 {
     createGraphicsPipeline(colorFormat);
 }
@@ -126,18 +127,29 @@ void VulkanGraphicsPipeline::createGraphicsPipeline(VkFormat colorFormat)
     VkPushConstantRange pushConstantRange{};
     pushConstantRange.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
     pushConstantRange.offset = 0;
-    pushConstantRange.size = sizeof(glm::mat4);
+    pushConstantRange.size = sizeof(CustomPushConstants);
 
     // Descriptor set layout for texture sampler
-    VkDescriptorSetLayoutBinding samplerBinding{};
-    samplerBinding.binding = 0;
-    samplerBinding.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
-    samplerBinding.descriptorCount = 1;
-    samplerBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+    std::array<VkDescriptorSetLayoutBinding, 2> bindings{};
+
+    // Binding 0: baseColorTex
+    bindings[0].binding = 0;
+    bindings[0].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    bindings[0].descriptorCount = 1;
+    bindings[0].stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+    bindings[0].pImmutableSamplers = nullptr;
+
+    // Binding 1: metallicRoughnessTex
+    bindings[1].binding = 1;
+    bindings[1].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    bindings[1].descriptorCount = 1;
+    bindings[1].stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+    bindings[1].pImmutableSamplers = nullptr;
 
     VkDescriptorSetLayoutCreateInfo descriptorSetlayoutInfo{VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO};
-    descriptorSetlayoutInfo.bindingCount = 1;
-    descriptorSetlayoutInfo.pBindings = &samplerBinding;
+    descriptorSetlayoutInfo.bindingCount = static_cast<uint32_t>(bindings.size());
+    descriptorSetlayoutInfo.pBindings = bindings.data();
+
 
     if (vkCreateDescriptorSetLayout(device, &descriptorSetlayoutInfo, nullptr, &descriptorSetLayout) != VK_SUCCESS)
         throw std::runtime_error("Failed to create descriptor set layout.");
@@ -155,8 +167,22 @@ void VulkanGraphicsPipeline::createGraphicsPipeline(VkFormat colorFormat)
     VkPipelineRenderingCreateInfo renderingInfo{VK_STRUCTURE_TYPE_PIPELINE_RENDERING_CREATE_INFO};
     renderingInfo.colorAttachmentCount = 1;
     renderingInfo.pColorAttachmentFormats = &colorFormat;
+    renderingInfo.depthAttachmentFormat = depthFormat;
 
-    // 11. Pipeline creation
+
+    // 11. depth stencil info 
+    VkPipelineDepthStencilStateCreateInfo depthStencil{};
+    depthStencil.sType = VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO;
+    depthStencil.depthTestEnable = VK_TRUE;
+    depthStencil.depthWriteEnable = VK_TRUE;
+    depthStencil.depthCompareOp = VK_COMPARE_OP_LESS;
+    depthStencil.depthBoundsTestEnable = VK_FALSE;
+    depthStencil.stencilTestEnable = VK_FALSE;
+    depthStencil.front = {};
+    depthStencil.back = {};
+
+
+    // 12. Pipeline creation
     VkGraphicsPipelineCreateInfo pipelineInfo{VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO};
     pipelineInfo.stageCount = 2;
     pipelineInfo.pStages = shaderStages;
@@ -167,6 +193,7 @@ void VulkanGraphicsPipeline::createGraphicsPipeline(VkFormat colorFormat)
     pipelineInfo.pMultisampleState = &multisampling;
     pipelineInfo.pColorBlendState = &colorBlending;
     pipelineInfo.pDynamicState = &dynamicState;
+    pipelineInfo.pDepthStencilState = &depthStencil;
     pipelineInfo.layout = pipelineLayout;
     pipelineInfo.renderPass = VK_NULL_HANDLE; // required to be null for dynamic rendering
     pipelineInfo.pNext = &renderingInfo;

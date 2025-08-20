@@ -183,10 +183,9 @@ hull shader에서 생성하는 모델의 곡선의 표면에 대한 제어점은
 되게 복잡한 구조의 시스템처럼 들리지만 사실 효율을 위해 이렇게 설계되었고, 각 쉐이더는 생각보다 간단하게 구성될 수 있다. 
 hull shader를 거치는 입력 patch는 많은 경우 아주 미미하게 변경되거나 아예 변경되지 않는다. 이 쉐이더는 또한 입력 patch의 추정 거리 또는 화면 크기를 사용해 tessellation factor를 동적으로 계산할 수 있다. 이는 terrain rendering에서 보통 많이 사용된다. 
 
- 
 
-
-
+The Geometry shader: 
+Geometry 쉐이더는 원시도형을 다른 원시도형으로 변환할 수 있다. 이는 tessellation 단계에서는 불가능한 기능이다. 예를 들면, 삼각형으로 이루어진 매쉬를 wireframe 모델로 변환하거나, 선분을 선이 아닌 얇은 사각형으로 변환해 선이 두꺼워 보이는 wireframe 모델을 만들 수도 있다. Geometry shader는 direct X 10이 출시되면서 hardware-accelerated graphics pipeline에 추가됐는데, 이 쉐이더가 제공하는 기능을 쓸지는 프로그래머가 결정할 수 있다. Tessellation 쉐이더 바로 다음에 위치하고 있다. Geometry shader의 입력값은 하나의 객체와 그것을 이루는 꼭짓점이다. 이 객체는 보통 strip 구조로 나열되어 있는 삼각형들, 선분, 또는 점으로 이루어져있다. 
 
 벌컨 이해하기 
 

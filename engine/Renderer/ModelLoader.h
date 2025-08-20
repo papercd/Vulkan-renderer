@@ -23,4 +23,15 @@ bool loadGLTFModel(const std::string &path, Mesh &outMesh);
 
 SceneObject loadGLTFModelToSceneObject(const std::string &path, VkDevice device, VkPhysicalDevice physicalDevice, VkCommandPool commandPool, VkQueue graphicsQueue, VkDescriptorPool descriptorPool, VkDescriptorSetLayout descriptorSetLayout);
 
+Material* createMaterialFromGLTFTextures(
+    const tinygltf::Material& gltfMaterial,
+    const tinygltf::Model& model,
+    VkDevice device,
+    VkPhysicalDevice physicalDevice,
+    VkCommandPool commandPool,
+    VkQueue graphicsQueue,
+    VkDescriptorPool descriptorPool,
+    VkDescriptorSetLayout descriptorSetLayout);
+    
+
 Material *createMaterialFromGLTFImage(const tinygltf::Image &gltfImage, VkDevice device, VkPhysicalDevice physicalDevice, VkCommandPool commandPool, VkQueue graphicsQueue, VkDescriptorPool descriptorPool, VkDescriptorSetLayout descriptorSetLayout);
