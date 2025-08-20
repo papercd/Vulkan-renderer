@@ -242,10 +242,10 @@ void Engine::drawFrame(
             CustomPushConstants push{};
             push.model = obj.transform; 
             push.viewProj = proj * view; 
-            push.lightPos = glm::vec3(10.0f,10.0f,10.0f);
+            push.lightPos = glm::vec3(0.0f,10.0f,0.0f);
             push.viewPos = cameraPos;
 
-            vkCmdPushConstants(commandBuffer, pipeline.getLayout(), VK_SHADER_STAGE_VERTEX_BIT, 0, sizeof(CustomPushConstants), &push);
+            vkCmdPushConstants(commandBuffer, pipeline.getLayout(), VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT, 0, sizeof(CustomPushConstants), &push);
             if (gpu.material && gpu.material->descriptorSet != VK_NULL_HANDLE)
             {
                 vkCmdBindDescriptorSets(

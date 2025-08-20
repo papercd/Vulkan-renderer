@@ -15,4 +15,8 @@ struct Material
     VkImageView mrImageView;
     VkSampler mrSampler;
 
+    VkImage normalImage;
+    VkDeviceMemory normalMemory;
+    VkImageView normalImageView;
+    VkSampler normalSampler;
 };

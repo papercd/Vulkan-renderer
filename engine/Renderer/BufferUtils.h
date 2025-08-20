@@ -4,10 +4,10 @@
 #include <glm/glm.hpp>
 
 struct CustomPushConstants {
-    glm::mat4 model;
-    glm::mat4 viewProj;
-    glm::vec3 lightPos;
-    glm::vec3 viewPos;
+    glm::mat4 model;        //  0–63
+    glm::mat4 viewProj;     // 64–127
+    alignas(16) glm::vec3 lightPos; // 128–143
+    alignas(16) glm::vec3 viewPos;  // 144–159
 };
 
 struct VulkanBuffer

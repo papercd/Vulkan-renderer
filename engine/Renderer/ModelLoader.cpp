@@ -152,7 +152,13 @@ Material* createMaterialFromGLTFTextures(
 {
     Material* mat = new Material();
 
-    auto loadImage = [&](const tinygltf::Image& gltfImage, VkImage& image, VkDeviceMemory& memory, VkImageView& view, VkSampler& sampler) {
+    auto loadImage = [&](const tinygltf::Image& gltfImage,
+                     VkFormat format,
+                     VkImage& image,
+                     VkDeviceMemory& memory,
+                     VkImageView& view,
+                     VkSampler& sampler) {
+
         VkDeviceSize imageSize = gltfImage.image.size();
 
         VulkanBuffer staging = createBuffer(
@@ -168,7 +174,7 @@ Material* createMaterialFromGLTFTextures(
         imageInfo.extent.depth = 1;
         imageInfo.mipLevels = 1;
         imageInfo.arrayLayers = 1;
-        imageInfo.format = VK_FORMAT_R8G8B8A8_SRGB;
+        imageInfo.format = format;
         imageInfo.tiling = VK_IMAGE_TILING_OPTIMAL;
         imageInfo.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
         imageInfo.usage = VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT;
@@ -234,7 +240,7 @@ Material* createMaterialFromGLTFTextures(
         VkImageViewCreateInfo viewInfo{VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO};
         viewInfo.image = image;
         viewInfo.viewType = VK_IMAGE_VIEW_TYPE_2D;
-        viewInfo.format = VK_FORMAT_R8G8B8A8_SRGB;
+        viewInfo.format = format;
         viewInfo.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
         viewInfo.subresourceRange.levelCount = 1;
         viewInfo.subresourceRange.layerCount = 1;
@@ -258,13 +264,20 @@ Material* createMaterialFromGLTFTextures(
     // Load base color texture
     if (gltfMaterial.pbrMetallicRoughness.baseColorTexture.index >= 0) {
         const auto& img = model.images[gltfMaterial.pbrMetallicRoughness.baseColorTexture.index];
-        loadImage(img, mat->image, mat->imageMemory, mat->imageView, mat->sampler);
+        loadImage(img, VK_FORMAT_R8G8B8A8_SRGB, mat->image, mat->imageMemory, mat->imageView, mat->sampler);
+
     }
 
     // Load metallic-roughness texture
     if (gltfMaterial.pbrMetallicRoughness.metallicRoughnessTexture.index >= 0) {
         const auto& img = model.images[gltfMaterial.pbrMetallicRoughness.metallicRoughnessTexture.index];
-        loadImage(img, mat->mrImage, mat->mrMemory, mat->mrImageView, mat->mrSampler);
+        loadImage(img, VK_FORMAT_R8G8B8A8_UNORM, mat->mrImage, mat->mrMemory, mat->mrImageView, mat->mrSampler);
+
+    }
+
+    if (gltfMaterial.normalTexture.index >= 0){
+        const auto& img = model.images[gltfMaterial.normalTexture.index];
+        loadImage(img,VK_FORMAT_R8G8B8A8_UNORM ,mat->normalImage, mat->normalMemory, mat->normalImageView, mat->normalSampler);
     }
 
     // Allocate descriptor set
@@ -275,7 +288,7 @@ Material* createMaterialFromGLTFTextures(
     vkAllocateDescriptorSets(device, &allocInfoDesc, &mat->descriptorSet);
 
     // Descriptor writes
-    std::array<VkWriteDescriptorSet, 2> writes{};
+    std::array<VkWriteDescriptorSet, 3> writes{};
 
     VkDescriptorImageInfo baseInfo{};
     baseInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
@@ -300,6 +313,18 @@ Material* createMaterialFromGLTFTextures(
     writes[1].descriptorCount = 1;
     writes[1].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
     writes[1].pImageInfo = &mrInfo;
+
+    VkDescriptorImageInfo normalInfo{};
+    normalInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+    normalInfo.imageView = mat->normalImageView;
+    normalInfo.sampler = mat->normalSampler;
+
+    writes[2].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+    writes[2].dstSet = mat->descriptorSet;
+    writes[2].dstBinding = 2;
+    writes[2].descriptorCount = 1;
+    writes[2].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    writes[2].pImageInfo = &normalInfo;
 
     uint32_t writeCount = 1;
 

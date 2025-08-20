@@ -125,12 +125,13 @@ void VulkanGraphicsPipeline::createGraphicsPipeline(VkFormat colorFormat)
     dynamicState.pDynamicStates = dynamicStates.data();
 
     VkPushConstantRange pushConstantRange{};
-    pushConstantRange.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
+    pushConstantRange.stageFlags = VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT;
     pushConstantRange.offset = 0;
-    pushConstantRange.size = sizeof(CustomPushConstants);
+    pushConstantRange.size = sizeof(CustomPushConstants); // Make sure this is ≥ 156!
+
 
     // Descriptor set layout for texture sampler
-    std::array<VkDescriptorSetLayoutBinding, 2> bindings{};
+    std::array<VkDescriptorSetLayoutBinding, 3> bindings{};
 
     // Binding 0: baseColorTex
     bindings[0].binding = 0;
@@ -145,6 +146,12 @@ void VulkanGraphicsPipeline::createGraphicsPipeline(VkFormat colorFormat)
     bindings[1].descriptorCount = 1;
     bindings[1].stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
     bindings[1].pImmutableSamplers = nullptr;
+
+    // Binding 2: normal map 
+    bindings[2].binding = 2;
+    bindings[2].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER; 
+    bindings[2].descriptorCount = 1;
+    bindings[2].stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
 
     VkDescriptorSetLayoutCreateInfo descriptorSetlayoutInfo{VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO};
     descriptorSetlayoutInfo.bindingCount = static_cast<uint32_t>(bindings.size());
