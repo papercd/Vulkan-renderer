@@ -1,5 +1,6 @@
 #pragma once
 
+#include "TextureUtils.h"
 #include <vulkan/vulkan.h>
 #include <GLFW/glfw3.h>
 #include <vector>
@@ -26,6 +27,8 @@ public:
     VkFormat getDepthFormat() const {return depthFormat;}
     const std::vector<VkImageView>& getDepthImageViews() const { return depthImageViews; }
 
+    const FallbackTextures& getFallbackTextures() const {return fallbackTextures;}
+
 
 private:
     void init(GLFWwindow *window);
@@ -38,6 +41,9 @@ private:
     VkSurfaceKHR surface = VK_NULL_HANDLE;
     VkQueue graphicsQueue = VK_NULL_HANDLE;
     VkQueue presentQueue = VK_NULL_HANDLE;
+
+    FallbackTextures fallbackTextures;
+
 
     std::vector<VkImage> depthImages; 
     std::vector<VkDeviceMemory> depthImageMemories; 

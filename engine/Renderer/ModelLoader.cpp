@@ -8,7 +8,7 @@
 #include <glm/gtc/type_ptr.hpp> // for glm::make_vec3 / make_vec2
 #include <iostream>
 
-SceneObject loadGLTFModelToSceneObject(const std::string &path, VkDevice device, VkPhysicalDevice physicalDevice, VkCommandPool commandPool, VkQueue graphicsQueue, VkDescriptorPool descriptorPool, VkDescriptorSetLayout descriptorSetLayout)
+SceneObject loadGLTFModelToSceneObject(const std::string &path, const FallbackTextures fbts, VkDevice device, VkPhysicalDevice physicalDevice, VkCommandPool commandPool, VkQueue graphicsQueue, VkDescriptorPool descriptorPool, VkDescriptorSetLayout descriptorSetLayout)
 {
     SceneObject obj;
     obj.transform = glm::mat4(1.0f);
@@ -33,6 +33,7 @@ SceneObject loadGLTFModelToSceneObject(const std::string &path, VkDevice device,
         materials[i] = createMaterialFromGLTFTextures(
                 mat,
                 model,
+                fbts,
                 device,
                 physicalDevice,
                 commandPool,
@@ -143,6 +144,7 @@ void transitionImageLayout(VkCommandBuffer cmd, VkImage image, VkImageLayout old
 Material* createMaterialFromGLTFTextures(
     const tinygltf::Material& gltfMaterial,
     const tinygltf::Model& model,
+    const FallbackTextures fbts,
     VkDevice device,
     VkPhysicalDevice physicalDevice,
     VkCommandPool commandPool,
@@ -261,25 +263,149 @@ Material* createMaterialFromGLTFTextures(
         vkCreateSampler(device, &samplerInfo, nullptr, &sampler);
     };
 
+
+    // defaults from gltf spec 
+    mat->paramsCPU.baseColorFactor = glm::vec4(1.0f);
+    mat->paramsCPU.mr_ns_ac        = glm::vec4(1.0f,1.0f,1.0f,0.5f);
+    mat->paramsCPU.alphaMode = 0; 
+
     // Load base color texture
-    if (gltfMaterial.pbrMetallicRoughness.baseColorTexture.index >= 0) {
+    bool hasBaseColorTexture = gltfMaterial.pbrMetallicRoughness.baseColorTexture.index >= 0;
+    if (hasBaseColorTexture) {
         const auto& img = model.images[gltfMaterial.pbrMetallicRoughness.baseColorTexture.index];
         loadImage(img, VK_FORMAT_R8G8B8A8_SRGB, mat->image, mat->imageMemory, mat->imageView, mat->sampler);
 
     }
 
+    bool hasBaseColorFactor = gltfMaterial.pbrMetallicRoughness.baseColorFactor.size() == 4;
+    if (hasBaseColorFactor){
+        mat->paramsCPU.baseColorFactor = glm::vec4(
+            (float)gltfMaterial.pbrMetallicRoughness.baseColorFactor[0],
+            (float)gltfMaterial.pbrMetallicRoughness.baseColorFactor[1],
+            (float)gltfMaterial.pbrMetallicRoughness.baseColorFactor[2],
+            (float)gltfMaterial.pbrMetallicRoughness.baseColorFactor[3]
+        );
+    }
+
+    bool hasMetallicFactor = gltfMaterial.pbrMetallicRoughness.metallicFactor >= 0.0;
+    if (hasMetallicFactor){
+        mat->paramsCPU.mr_ns_ac.x = (float)gltfMaterial.pbrMetallicRoughness.metallicFactor;
+    }
+
+    bool hasMetallicRoughness = gltfMaterial.pbrMetallicRoughness.roughnessFactor >= 0.0;
+    if (hasMetallicRoughness){
+        mat->paramsCPU.mr_ns_ac.y = (float)gltfMaterial.pbrMetallicRoughness.roughnessFactor;
+    }
+   
+
     // Load metallic-roughness texture
-    if (gltfMaterial.pbrMetallicRoughness.metallicRoughnessTexture.index >= 0) {
+    bool hasMetallicRoughnessTexture = gltfMaterial.pbrMetallicRoughness.metallicRoughnessTexture.index >= 0;
+    if (hasMetallicRoughnessTexture) {
         const auto& img = model.images[gltfMaterial.pbrMetallicRoughness.metallicRoughnessTexture.index];
         loadImage(img, VK_FORMAT_R8G8B8A8_UNORM, mat->mrImage, mat->mrMemory, mat->mrImageView, mat->mrSampler);
 
     }
 
-    if (gltfMaterial.normalTexture.index >= 0){
+    // load normal texture 
+    bool hasNormalTexture = gltfMaterial.normalTexture.index >= 0;
+    if (hasNormalTexture){
         const auto& img = model.images[gltfMaterial.normalTexture.index];
         loadImage(img,VK_FORMAT_R8G8B8A8_UNORM ,mat->normalImage, mat->normalMemory, mat->normalImageView, mat->normalSampler);
+
+        if (gltfMaterial.normalTexture.scale > 0.0){
+            mat->paramsCPU.mr_ns_ac.z = (float)gltfMaterial.normalTexture.scale;
+        }
     }
 
+    // alphaMode 
+    if (!gltfMaterial.alphaMode.empty()){
+        if (gltfMaterial.alphaMode == "MASK") mat->paramsCPU.alphaMode =1;
+        else if (gltfMaterial.alphaMode == "BLEND") mat->paramsCPU.alphaMode =2;
+        else mat->paramsCPU.alphaMode = 0; 
+    }
+
+    if (gltfMaterial.alphaCutoff >0.0){
+        mat->paramsCPU.mr_ns_ac.w = (float)gltfMaterial.alphaCutoff;
+    }
+
+    // read emissive factor and load emissive texture
+
+    if (gltfMaterial.emissiveFactor.size() == 3){
+        mat->paramsCPU.emissiveFactor_andAO = glm::vec4(
+            (float)gltfMaterial.emissiveFactor[0],
+            (float)gltfMaterial.emissiveFactor[1],
+            (float)gltfMaterial.emissiveFactor[2],
+            1.0f
+        );
+    } else{
+        mat->paramsCPU.emissiveFactor_andAO = glm::vec4(1.0f);
+    }
+
+    VkBufferCreateInfo bci{VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO};
+    bci.size = sizeof(MaterialParams);
+    bci.usage = VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT; 
+    bci.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
+
+    vkCreateBuffer(device,&bci,nullptr,&mat->paramsBuffer);
+    
+    VkMemoryRequirements req{};
+    vkGetBufferMemoryRequirements(device, mat->paramsBuffer, &req);
+
+    VkMemoryAllocateInfo mai{VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO};
+    mai.allocationSize = req.size;
+    mai.memoryTypeIndex = findMemoryType(physicalDevice,
+        req.memoryTypeBits,
+        VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
+
+    vkAllocateMemory(device, &mai, nullptr, &mat->paramsMemory);
+    vkBindBufferMemory(device, mat->paramsBuffer, mat->paramsMemory, 0);
+
+    // 3) Upload data
+    void* mapped = nullptr;
+    vkMapMemory(device, mat->paramsMemory, 0, sizeof(MaterialParams), 0, &mapped);
+    std::memcpy(mapped, &mat->paramsCPU, sizeof(MaterialParams));
+    vkUnmapMemory(device, mat->paramsMemory);
+    
+    bool hasEmissiveTexture = gltfMaterial.emissiveTexture.index >= 0;
+    if (hasEmissiveTexture){
+        const auto& img = model.images[gltfMaterial.emissiveTexture.index];
+        loadImage(img, VK_FORMAT_R8G8B8A8_SRGB,  // SRGB for color
+                mat->emissiveImage, mat->emissiveMemory,
+                mat->emissiveImageView, mat->emissiveSampler);
+    }
+
+    bool hasAO = (gltfMaterial.occlusionTexture.index >= 0);
+
+    // strength default = 1.0 (stored in UBO's .w)
+    float occStrength = 1.0f;
+    if (hasAO && gltfMaterial.occlusionTexture.strength > 0.0) {
+        occStrength = static_cast<float>(gltfMaterial.occlusionTexture.strength);
+    }
+    mat->paramsCPU.emissiveFactor_andAO.w = occStrength; // xyz already set to emissiveFactor_andAO earlier
+
+    if (hasAO) {
+        const int aoTexIdx = gltfMaterial.occlusionTexture.index;
+        const int aoImgIdx = model.textures[aoTexIdx].source;
+
+        // If AO texture == MR texture, alias MR objects:
+        const int mrTexIdx = gltfMaterial.pbrMetallicRoughness.metallicRoughnessTexture.index;
+        const bool shareWithMR = (mrTexIdx >= 0 && aoTexIdx == mrTexIdx);
+
+        if (shareWithMR) {
+            // IMPORTANT: assign *all* AO fields so later code sees non-null handles.
+            mat->aoImage     = mat->mrImage;
+            mat->aoImageView = mat->mrImageView;
+            mat->aoSampler   = mat->mrSampler;
+            mat->aoMemory    = mat->mrMemory;
+            mat->aoAliasedMR = true; // add a bool to avoid double destroy
+        } else {
+            const auto& aoImg = model.images[aoImgIdx];
+            loadImage(aoImg, VK_FORMAT_R8G8B8A8_UNORM,
+                    mat->aoImage, mat->aoMemory,
+                    mat->aoImageView, mat->aoSampler);
+            mat->aoAliasedMR = false;
+        }
+    }
     // Allocate descriptor set
     VkDescriptorSetAllocateInfo allocInfoDesc{VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO};
     allocInfoDesc.descriptorPool = descriptorPool;
@@ -288,12 +414,21 @@ Material* createMaterialFromGLTFTextures(
     vkAllocateDescriptorSets(device, &allocInfoDesc, &mat->descriptorSet);
 
     // Descriptor writes
-    std::array<VkWriteDescriptorSet, 3> writes{};
+    std::array<VkWriteDescriptorSet, 6> writes{};
+
+    
 
     VkDescriptorImageInfo baseInfo{};
     baseInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
-    baseInfo.imageView = mat->imageView;
-    baseInfo.sampler = mat->sampler;
+
+    if (hasBaseColorTexture){
+        baseInfo.imageView = mat->imageView;
+        baseInfo.sampler = mat->sampler;
+    } else{
+        baseInfo.imageView = fbts.whiteSRGB.view;
+        baseInfo.sampler = fbts.whiteSRGB.sampler;
+    }
+    
 
     writes[0].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
     writes[0].dstSet = mat->descriptorSet;
@@ -304,9 +439,15 @@ Material* createMaterialFromGLTFTextures(
 
     VkDescriptorImageInfo mrInfo{};
     mrInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
-    mrInfo.imageView = mat->mrImageView;
-    mrInfo.sampler = mat->mrSampler;
 
+    if (hasMetallicRoughnessTexture){
+        mrInfo.imageView = mat->mrImageView;
+        mrInfo.sampler = mat->mrSampler;
+    }else{
+        mrInfo.imageView = fbts.defaultMR.view; 
+        mrInfo.sampler = fbts.defaultMR.sampler; 
+    }
+    
     writes[1].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
     writes[1].dstSet = mat->descriptorSet;
     writes[1].dstBinding = 1;
@@ -316,8 +457,14 @@ Material* createMaterialFromGLTFTextures(
 
     VkDescriptorImageInfo normalInfo{};
     normalInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
-    normalInfo.imageView = mat->normalImageView;
-    normalInfo.sampler = mat->normalSampler;
+
+    if (hasNormalTexture){
+        normalInfo.imageView = mat->normalImageView;
+        normalInfo.sampler = mat->normalSampler;
+    } else{
+        normalInfo.imageView = fbts.flatNormal.view;
+        normalInfo.sampler = fbts.flatNormal.sampler; 
+    }
 
     writes[2].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
     writes[2].dstSet = mat->descriptorSet;
@@ -326,19 +473,56 @@ Material* createMaterialFromGLTFTextures(
     writes[2].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
     writes[2].pImageInfo = &normalInfo;
 
-    uint32_t writeCount = 1;
+    VkDescriptorImageInfo emissiveInfo{};
+    emissiveInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
 
-    if (gltfMaterial.pbrMetallicRoughness.metallicRoughnessTexture.index >= 0) {
-        // Fill writes[1] like you're doing now
-        writes[1].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-        writes[1].dstSet = mat->descriptorSet;
-        writes[1].dstBinding = 1;
-        writes[1].descriptorCount = 1;
-        writes[1].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
-        writes[1].pImageInfo = &mrInfo;
-
-        writeCount = 2; // ✅ Tell Vulkan you want to write both
+    if (hasEmissiveTexture){
+        emissiveInfo.imageView = mat->emissiveImageView;
+        emissiveInfo.sampler   = mat->emissiveSampler;
+    } else{
+        emissiveInfo.imageView = fbts.blackSRGB.view;
+        emissiveInfo.sampler = fbts.blackSRGB.sampler;
     }
+        
+    
+    writes[3].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+    writes[3].dstSet = mat->descriptorSet;
+    writes[3].dstBinding = 3; // emissive binding
+    writes[3].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    writes[3].descriptorCount = 1;
+    writes[3].pImageInfo = &emissiveInfo;   
+
+    VkDescriptorBufferInfo matBufInfo{};
+    matBufInfo.buffer = mat->paramsBuffer;
+    matBufInfo.offset = 0;
+    matBufInfo.range  = sizeof(MaterialParams);
+
+    writes[4].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+    writes[4].dstSet = mat->descriptorSet;
+    writes[4].dstBinding = 4;
+    writes[4].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    writes[4].descriptorCount = 1;
+    writes[4].pBufferInfo = &matBufInfo;
+
+    VkDescriptorImageInfo aoInfo{};
+    aoInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL; 
+
+    if (mat->aoImageView != VK_NULL_HANDLE && mat->aoSampler != VK_NULL_HANDLE) {
+        aoInfo.imageView = mat->aoImageView;
+        aoInfo.sampler   = mat->aoSampler;
+    } else {
+        aoInfo.imageView = fbts.whiteUNORM.view;     // must be created at context init
+        aoInfo.sampler   = fbts.whiteUNORM.sampler;
+    }
+
+    writes[5].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+    writes[5].dstSet = mat->descriptorSet;
+    writes[5].dstBinding = 5;
+    writes[5].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    writes[5].descriptorCount = 1;
+    writes[5].pImageInfo = &aoInfo;
+
+    uint32_t writeCount = 6;
 
     vkUpdateDescriptorSets(device, writeCount, writes.data(), 0, nullptr);
 

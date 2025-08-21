@@ -16,6 +16,8 @@ struct VulkanBuffer
     VkDeviceMemory memory;
 };
 
+uint32_t findMemoryType(VkPhysicalDevice physicalDevice, uint32_t typeFilter, VkMemoryPropertyFlags props);
+
 VulkanBuffer createBuffer(VkDevice device, VkPhysicalDevice physicalDevice,
                           VkDeviceSize size, VkBufferUsageFlags usage,
                           VkMemoryPropertyFlags properties);

@@ -27,6 +27,7 @@ file(GLOB NEW_GLOB LIST_DIRECTORIES true "C:/Users/hpptk/OneDrive/Desktop/vulkan
 set(OLD_GLOB
   "C:/Users/hpptk/OneDrive/Desktop/vulkan/engine/Renderer/BufferUtils.cpp"
   "C:/Users/hpptk/OneDrive/Desktop/vulkan/engine/Renderer/ModelLoader.cpp"
+  "C:/Users/hpptk/OneDrive/Desktop/vulkan/engine/Renderer/TextureUtils.cpp"
   "C:/Users/hpptk/OneDrive/Desktop/vulkan/engine/Renderer/VulkanContext.cpp"
   "C:/Users/hpptk/OneDrive/Desktop/vulkan/engine/Renderer/VulkanGraphicsPipeline.cpp"
   )
@@ -42,6 +43,7 @@ set(OLD_GLOB
   "C:/Users/hpptk/OneDrive/Desktop/vulkan/engine/Renderer/GPUMesh.h"
   "C:/Users/hpptk/OneDrive/Desktop/vulkan/engine/Renderer/ModelLoader.h"
   "C:/Users/hpptk/OneDrive/Desktop/vulkan/engine/Renderer/SceneObject.h"
+  "C:/Users/hpptk/OneDrive/Desktop/vulkan/engine/Renderer/TextureUtils.h"
   "C:/Users/hpptk/OneDrive/Desktop/vulkan/engine/Renderer/VulkanContext.h"
   "C:/Users/hpptk/OneDrive/Desktop/vulkan/engine/Renderer/VulkanGraphicsPipeline.h"
   )

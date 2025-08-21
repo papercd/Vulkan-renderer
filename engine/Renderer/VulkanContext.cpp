@@ -212,6 +212,22 @@ void VulkanContext::init(GLFWwindow *window)
     VkCommandPool commandPool;
     vkCreateCommandPool(device, &poolInfo, nullptr, &commandPool);
 
+    if (!makeBlackSRGBTexture(physicalDevice,device,commandPool,graphicsQueue,fallbackTextures.blackSRGB)){
+        throw std::runtime_error("failed to create fallback black SRGB texture.");
+    }
+    if (!makeWhiteSRGBTexture(physicalDevice,device,commandPool,graphicsQueue,fallbackTextures.whiteSRGB)){
+        throw std::runtime_error("failed to create fallback white SRGB texture.");
+    }    
+    if (!makeFlatNormalUNORM(physicalDevice,device,commandPool,graphicsQueue,fallbackTextures.flatNormal)){
+        throw std::runtime_error("failed to create fallback normal UNORM texture.");
+    }
+    if (!makeDefaultMR_UNORM(physicalDevice,device,commandPool,graphicsQueue,fallbackTextures.defaultMR)){
+        throw std::runtime_error("failed to create fallback default MR UNORM texture.");
+    }
+    if (!makeWhiteUNORMTexture(physicalDevice,device,commandPool,graphicsQueue,fallbackTextures.whiteUNORM)){
+        throw std::runtime_error("failed to create fallback white UNORM texture.");
+    }
+
     VkCommandBufferAllocateInfo allocInfo{VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO};
     allocInfo.commandPool = commandPool;
     allocInfo.level = VK_COMMAND_BUFFER_LEVEL_PRIMARY;
@@ -252,6 +268,10 @@ void VulkanContext::init(GLFWwindow *window)
 
 void VulkanContext::cleanup()
 {
+    destroySolid1x1Texture(device,fallbackTextures.whiteSRGB);
+    destroySolid1x1Texture(device,fallbackTextures.flatNormal);
+    destroySolid1x1Texture(device,fallbackTextures.defaultMR);
+    destroySolid1x1Texture(device,fallbackTextures.blackSRGB);
 
     for (auto view : depthImageViews)
         vkDestroyImageView(device, view, nullptr);

@@ -10,6 +10,9 @@
     <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\ModelLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\TextureUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\VulkanContext.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -37,6 +40,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\SceneObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\TextureUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\VulkanContext.h">

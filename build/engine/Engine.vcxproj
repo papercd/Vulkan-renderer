@@ -297,6 +297,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\ModelLoader.cpp" />
     <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\ModelLoader.h" />
     <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\SceneObject.h" />
+    <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\TextureUtils.cpp" />
+    <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\TextureUtils.h" />
     <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\VulkanContext.cpp" />
     <ClInclude Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\VulkanContext.h" />
     <ClCompile Include="C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\VulkanGraphicsPipeline.cpp" />

@@ -1,6 +1,7 @@
 C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Engine.cpp;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\engine\Engine.dir\Debug\Engine.obj
 C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\BufferUtils.cpp;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\engine\Engine.dir\Debug\BufferUtils.obj
 C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\ModelLoader.cpp;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\engine\Engine.dir\Debug\ModelLoader.obj
+C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\TextureUtils.cpp;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\engine\Engine.dir\Debug\TextureUtils.obj
 C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\VulkanContext.cpp;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\engine\Engine.dir\Debug\VulkanContext.obj
 C:\Users\hpptk\OneDrive\Desktop\vulkan\engine\Renderer\VulkanGraphicsPipeline.cpp;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\engine\Engine.dir\Debug\VulkanGraphicsPipeline.obj
 C:\Users\hpptk\OneDrive\Desktop\vulkan\ext\vk-bootstrap\src\VkBootstrap.cpp;C:\Users\hpptk\OneDrive\Desktop\vulkan\build\engine\Engine.dir\Debug\VkBootstrap.obj

@@ -4,6 +4,7 @@
 #include "Renderer/VulkanGraphicsPipeline.h"
 #include "Renderer/VulkanContext.h"
 #include "Renderer/BufferUtils.h"
+#include "Renderer/TextureUtils.h"
 #include "Renderer/ModelLoader.h" // <- contains the Mesh struct
 #include <vector>
 #include "Renderer/SceneObject.h"
@@ -22,9 +23,12 @@ private:
     VkCommandPool commandPool;
     VkCommandBuffer commandBuffer;
 
+   
+
     VkSemaphore imageAvailable = VK_NULL_HANDLE;
     VkSemaphore renderFinished = VK_NULL_HANDLE;
     VkFence inFlight = VK_NULL_HANDLE;
+
 
     // Camera orbit parameters
     float yaw = 0.0f;    // left/right

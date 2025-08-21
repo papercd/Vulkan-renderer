@@ -70,7 +70,7 @@ void Engine::init()
     fenceInfo.flags = VK_FENCE_CREATE_SIGNALED_BIT;
     vkCreateFence(device, &fenceInfo, nullptr, &inFlight);
 
-    sceneObjects.push_back(loadGLTFModelToSceneObject("../../assets/6_Pounder_Brass_Cannon.glb", vkContext->getDevice(), vkContext->getPhysicalDevice(), commandPool, vkContext->getGraphicsQueue(), pipeline->getDescriptorPool(), pipeline->getDescriptorSetLayout()));
+    sceneObjects.push_back(loadGLTFModelToSceneObject("../../assets/6_Pounder_Brass_Cannon.glb",vkContext->getFallbackTextures(), vkContext->getDevice(), vkContext->getPhysicalDevice(), commandPool, vkContext->getGraphicsQueue(), pipeline->getDescriptorPool(), pipeline->getDescriptorSetLayout()));
 }
 
 void Engine::mainLoop()
