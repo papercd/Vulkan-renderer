@@ -7,7 +7,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp> // ✅ This is required
 #include <glm/gtc/type_ptr.hpp>
-
+#include <algorithm>
 #include <iostream>
 #include "Renderer/VulkanContext.h"
 
@@ -221,6 +221,7 @@ void Engine::drawFrame(
     vkCmdSetScissor(commandBuffer, 0, 1, &scissor);
 
     // === [7] Bind pipeline and buffers ===
+    /*
     std::cout << "[Frame] Binding pipeline and drawing mesh..." << std::endl;
     vkCmdBindPipeline(commandBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, pipeline.getPipeline());
 
@@ -258,11 +259,107 @@ void Engine::drawFrame(
             vkCmdDrawIndexed(commandBuffer, gpu.indexCount, 1, 0, 0, 0);
         }
     }
+    */
 
-    // === [8] End rendering and recording ===
+    // === [7] Build draw lists (opaque/mask first, blend later) ===
+    // We'll sort BLEND back-to-front based on distance to camera.
+    // MASK is treated as opaque because fragments either pass or are discarded in the shader.
+
+    struct DrawItem {
+        const SceneObject* obj;
+        const GPUMesh*     mesh;
+        float              distToCamera; // for BLEND sorting
+        bool               isBlend;
+    };
+
+    std::vector<DrawItem> opaqueItems;
+    std::vector<DrawItem> blendItems;
+
+    for (const SceneObject &obj : sceneObjects)
+    {
+        // Approximate object position by transforming the origin; good enough for sorting
+        glm::vec3 objWorldPos = glm::vec3(obj.transform * glm::vec4(0,0,0,1));
+        float baseDist = glm::length(cameraPos - objWorldPos);
+
+        for (const GPUMesh &gpu : obj.meshes)
+        {
+            bool isBlend = false;
+            if (gpu.material) {
+                // 0=OPAQUE, 1=MASK, 2=BLEND (matches your MaterialParams::alphaMode)
+                isBlend = (gpu.material->paramsCPU.alphaMode == 2u);
+            }
+
+            DrawItem item{ &obj, &gpu, baseDist, isBlend };
+            if (isBlend) blendItems.push_back(item);
+            else         opaqueItems.push_back(item);
+        }
+    }
+
+    // Sort transparent back-to-front (largest distance first)
+    std::sort(blendItems.begin(), blendItems.end(),
+            [](const DrawItem& a, const DrawItem& b){ return a.distToCamera > b.distToCamera; });
+
+    // === [8] Bind + draw opaque/mask pass ===
+    // NOTE: assumes you've added an opaque and a blend pipeline in VulkanGraphicsPipeline.
+    // If you haven’t, temporarily use getPipeline() for both (blending just won’t be correct yet).
+    VkPipeline opaquePipeline = pipeline.getOpaquePipeline();  // or pipeline.getPipeline()
+    vkCmdBindPipeline(commandBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, opaquePipeline);
+
+    // camera view and projection (same as your code)
+    glm::mat4 view = glm::lookAt(cameraPos, target, cameraUp);
+    glm::mat4 proj = glm::perspective(glm::radians(45.0f), extent.width / (float)extent.height, 0.1f, 100.0f);
+    proj[1][1] *= -1;
+
+    auto drawList = [&](const std::vector<DrawItem>& items)
+    {
+        for (const DrawItem& it : items)
+        {
+            const SceneObject& obj = *it.obj;
+            const GPUMesh&     gpu = *it.mesh;
+
+            VkDeviceSize offsets[] = {0};
+            vkCmdBindVertexBuffers(commandBuffer, 0, 1, &gpu.vertexBuffer.buffer, offsets);
+            vkCmdBindIndexBuffer(commandBuffer, gpu.indexBuffer.buffer, 0, VK_INDEX_TYPE_UINT32);
+
+            CustomPushConstants push{};
+            push.model   = obj.transform;
+            push.viewProj= proj * view;
+            push.lightPos= glm::vec3(0.0f, 10.0f, 0.0f);
+            push.viewPos = cameraPos;
+
+            vkCmdPushConstants(commandBuffer, pipeline.getLayout(),
+                            VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,
+                            0, sizeof(CustomPushConstants), &push);
+
+            if (gpu.material && gpu.material->descriptorSet != VK_NULL_HANDLE)
+            {
+                vkCmdBindDescriptorSets(
+                    commandBuffer,
+                    VK_PIPELINE_BIND_POINT_GRAPHICS,
+                    pipeline.getLayout(),
+                    0, 1, &gpu.material->descriptorSet,
+                    0, nullptr);
+            }
+
+            vkCmdDrawIndexed(commandBuffer, gpu.indexCount, 1, 0, 0, 0);
+        }
+    };
+
+    drawList(opaqueItems);
+
+    // === [9] Bind + draw blend pass ===
+    // Switch to blending pipeline for materials with alphaMode=BLEND
+    VkPipeline blendPipeline = pipeline.getBlendPipeline();    // or pipeline.getPipeline() temporarily
+    vkCmdBindPipeline(commandBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, blendPipeline);
+    drawList(blendItems);
+
+
+
+
+    // === [10] End rendering and recording ===
     std::cout << "[Frame] Ending rendering and command buffer..." << std::endl;
     vkCmdEndRendering(commandBuffer);
-    // === [8.5] Transition image layout back to PRESENT_SRC_KHR ===
+    // === [10.5] Transition image layout back to PRESENT_SRC_KHR ===
     std::cout << "[Frame] Transitioning image layout to PRESENT_SRC_KHR..." << std::endl;
 
     VkImageMemoryBarrier presentBarrier{VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER};
@@ -285,7 +382,7 @@ void Engine::drawFrame(
 
     vkEndCommandBuffer(commandBuffer);
 
-    // === [9] Submit to graphics queue ===
+    // === [11] Submit to graphics queue ===
     std::cout << "[Frame] Submitting command buffer to GPU..." << std::endl;
     VkPipelineStageFlags waitStage = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
     VkSubmitInfo submitInfo{VK_STRUCTURE_TYPE_SUBMIT_INFO};
@@ -303,7 +400,7 @@ void Engine::drawFrame(
         return;
     }
 
-    // === [10] Present image ===
+    // === [12] Present image ===
     std::cout << "[Frame] Presenting rendered image..." << std::endl;
     VkPresentInfoKHR presentInfo{VK_STRUCTURE_TYPE_PRESENT_INFO_KHR};
     presentInfo.waitSemaphoreCount = 1;
@@ -318,7 +415,7 @@ void Engine::drawFrame(
         return;
     }
 
-    // === [11] Final GPU wait for frame completion ===
+    // === [13] Final GPU wait for frame completion ===
     std::cout << "[Frame] Frame complete. Waiting for fence to signal..." << std::endl;
     vkWaitForFences(device, 1, &inFlight, VK_TRUE, UINT64_MAX);
     std::cout << "[Frame] Done.\n"

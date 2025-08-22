@@ -26,13 +26,15 @@ static std::vector<char> readFile(const std::string &path)
 VulkanGraphicsPipeline::VulkanGraphicsPipeline(VkDevice device, VkFormat colorFormat,VkFormat depthFormat)
     : device(device) , depthFormat(depthFormat)
 {
-    createGraphicsPipeline(colorFormat);
+    createGraphicsPipelines(colorFormat);
 }
 
 VulkanGraphicsPipeline::~VulkanGraphicsPipeline()
 {
-    if (pipeline != VK_NULL_HANDLE)
-        vkDestroyPipeline(device, pipeline, nullptr);
+    if (pipelineOpaque!= VK_NULL_HANDLE)
+        vkDestroyPipeline(device, pipelineOpaque, nullptr);
+    if (pipelineBlend != VK_NULL_HANDLE)
+        vkDestroyPipeline(device, pipelineBlend , nullptr);
     if (pipelineLayout != VK_NULL_HANDLE)
         vkDestroyPipelineLayout(device, pipelineLayout, nullptr);
 }
@@ -50,7 +52,7 @@ VkShaderModule VulkanGraphicsPipeline::loadShaderModule(const std::string &path)
     return module;
 }
 
-void VulkanGraphicsPipeline::createGraphicsPipeline(VkFormat colorFormat)
+void VulkanGraphicsPipeline::createGraphicsPipelines(VkFormat colorFormat)
 {
     // 1. Load shaders
     VkShaderModule vertShaderModule = loadShaderModule("../../shaders/basic.vert.spv");
@@ -106,7 +108,17 @@ void VulkanGraphicsPipeline::createGraphicsPipeline(VkFormat colorFormat)
     VkPipelineMultisampleStateCreateInfo multisampling{VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO};
     multisampling.rasterizationSamples = VK_SAMPLE_COUNT_1_BIT;
 
+
+    VkPushConstantRange pushConstantRange{};
+    pushConstantRange.stageFlags = VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT;
+    pushConstantRange.offset = 0;
+    pushConstantRange.size = sizeof(CustomPushConstants); // Make sure this is ≥ 155!
+
+
+
+
     // 7. Color blend (no blending for now)
+    /*
     VkPipelineColorBlendAttachmentState blendAttachment{};
     blendAttachment.colorWriteMask = VK_COLOR_COMPONENT_R_BIT | VK_COLOR_COMPONENT_G_BIT |
                                      VK_COLOR_COMPONENT_B_BIT | VK_COLOR_COMPONENT_A_BIT;
@@ -115,7 +127,7 @@ void VulkanGraphicsPipeline::createGraphicsPipeline(VkFormat colorFormat)
     VkPipelineColorBlendStateCreateInfo colorBlending{VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO};
     colorBlending.attachmentCount = 1;
     colorBlending.pAttachments = &blendAttachment;
-
+    */
     // 8. Dynamic state
     std::array<VkDynamicState, 2> dynamicStates = {
         VK_DYNAMIC_STATE_VIEWPORT,
@@ -124,11 +136,9 @@ void VulkanGraphicsPipeline::createGraphicsPipeline(VkFormat colorFormat)
     VkPipelineDynamicStateCreateInfo dynamicState{VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO};
     dynamicState.dynamicStateCount = static_cast<uint32_t>(dynamicStates.size());
     dynamicState.pDynamicStates = dynamicStates.data();
+    
 
-    VkPushConstantRange pushConstantRange{};
-    pushConstantRange.stageFlags = VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT;
-    pushConstantRange.offset = 0;
-    pushConstantRange.size = sizeof(CustomPushConstants); // Make sure this is ≥ 156!
+    
 
 
     // Descriptor set layout for texture sampler
@@ -196,8 +206,63 @@ void VulkanGraphicsPipeline::createGraphicsPipeline(VkFormat colorFormat)
     renderingInfo.pColorAttachmentFormats = &colorFormat;
     renderingInfo.depthAttachmentFormat = depthFormat;
 
+    auto build = [&](bool enableBlend) {
+        // Depth-stencil differs only by depthWriteEnable
+        VkPipelineDepthStencilStateCreateInfo depthStencil{VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO};
+        depthStencil.depthTestEnable  = VK_TRUE;
+        depthStencil.depthWriteEnable = enableBlend ? VK_FALSE : VK_TRUE; // BLEND: no depth writes
+        depthStencil.depthCompareOp   = VK_COMPARE_OP_LESS;
+        depthStencil.depthBoundsTestEnable = VK_FALSE;
+        depthStencil.stencilTestEnable     = VK_FALSE;
+
+        // Color blend differs by blendEnable and factors
+        VkPipelineColorBlendAttachmentState blendAttachment{};
+        blendAttachment.colorWriteMask = VK_COLOR_COMPONENT_R_BIT | VK_COLOR_COMPONENT_G_BIT |
+                                         VK_COLOR_COMPONENT_B_BIT | VK_COLOR_COMPONENT_A_BIT;
+        if (enableBlend) {
+            blendAttachment.blendEnable = VK_TRUE;
+            // Straight alpha blending
+            blendAttachment.srcColorBlendFactor = VK_BLEND_FACTOR_SRC_ALPHA;
+            blendAttachment.dstColorBlendFactor = VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA;
+            blendAttachment.colorBlendOp        = VK_BLEND_OP_ADD;
+            blendAttachment.srcAlphaBlendFactor = VK_BLEND_FACTOR_ONE;
+            blendAttachment.dstAlphaBlendFactor = VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA;
+            blendAttachment.alphaBlendOp        = VK_BLEND_OP_ADD;
+        } else {
+            blendAttachment.blendEnable = VK_FALSE;
+        }
+
+        VkPipelineColorBlendStateCreateInfo colorBlending{VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO};
+        colorBlending.attachmentCount = 1;
+        colorBlending.pAttachments = &blendAttachment;
+
+        VkPipelineShaderStageCreateInfo shaderStages[] = { vertStage, fragStage };
+
+        VkGraphicsPipelineCreateInfo pi{VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO};
+        pi.stageCount = 2;                 pi.pStages              = shaderStages;
+        pi.pVertexInputState      = &vertexInput;
+        pi.pInputAssemblyState    = &inputAssembly;
+        pi.pViewportState         = &viewportState;
+        pi.pRasterizationState    = &rasterizer;
+        pi.pMultisampleState      = &multisampling;
+        pi.pDepthStencilState     = &depthStencil;
+        pi.pColorBlendState       = &colorBlending;
+        pi.pDynamicState          = &dynamicState;
+        pi.layout                 = pipelineLayout;
+        pi.renderPass             = VK_NULL_HANDLE; // dynamic rendering
+        pi.pNext                  = &renderingInfo;
+
+        VkPipeline out{};
+        if (vkCreateGraphicsPipelines(device, VK_NULL_HANDLE, 1, &pi, nullptr, &out) != VK_SUCCESS)
+            throw std::runtime_error("Failed to create graphics pipeline");
+        return out;
+    };
+
+    pipelineOpaque = build(false);
+    pipelineBlend = build(true);
 
     // 11. depth stencil info 
+    /*
     VkPipelineDepthStencilStateCreateInfo depthStencil{};
     depthStencil.sType = VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO;
     depthStencil.depthTestEnable = VK_TRUE;
@@ -207,9 +272,11 @@ void VulkanGraphicsPipeline::createGraphicsPipeline(VkFormat colorFormat)
     depthStencil.stencilTestEnable = VK_FALSE;
     depthStencil.front = {};
     depthStencil.back = {};
-
+    */
 
     // 12. Pipeline creation
+
+    /*
     VkGraphicsPipelineCreateInfo pipelineInfo{VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO};
     pipelineInfo.stageCount = 2;
     pipelineInfo.pStages = shaderStages;
@@ -225,9 +292,11 @@ void VulkanGraphicsPipeline::createGraphicsPipeline(VkFormat colorFormat)
     pipelineInfo.renderPass = VK_NULL_HANDLE; // required to be null for dynamic rendering
     pipelineInfo.pNext = &renderingInfo;
     pipelineInfo.flags = 0;
+    
 
     if (vkCreateGraphicsPipelines(device, VK_NULL_HANDLE, 1, &pipelineInfo, nullptr, &pipeline) != VK_SUCCESS)
         throw std::runtime_error("Failed to create graphics pipeline");
+    */
 
     std::array<VkDescriptorPoolSize, 2> poolSizes{};
     poolSizes[0].type = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER; 
