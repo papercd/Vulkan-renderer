@@ -6,7 +6,12 @@
 #include <cstring>
 #include "ModelLoader.h"
 #include <glm/gtc/type_ptr.hpp> // for glm::make_vec3 / make_vec2
+#include <glm/gtc/epsilon.hpp>
+#define GLM_ENABLE_EXPERIMENTAL
+#include <glm/gtx/norm.hpp> 
+#include <algorithm>
 #include <iostream>
+
 
 SceneObject loadGLTFModelToSceneObject(const std::string &path, const FallbackTextures fbts, VkDevice device, VkPhysicalDevice physicalDevice, VkCommandPool commandPool, VkQueue graphicsQueue, VkDescriptorPool descriptorPool, VkDescriptorSetLayout descriptorSetLayout)
 {
@@ -90,6 +95,71 @@ SceneObject loadGLTFModelToSceneObject(const std::string &path, const FallbackTe
                 std::cerr << "Unsupported index type.\n";
                 continue;
             }
+
+            // --- Tangent computation ---
+            std::vector<glm::vec3> tan1(vertices.size(), glm::vec3(0.0f));
+            std::vector<glm::vec3> tan2(vertices.size(), glm::vec3(0.0f));
+
+            // Accumulate per-triangle tangents/bitangents
+            for (size_t i = 0; i + 2 < indices.size(); i += 3)
+            {
+                uint32_t i0 = indices[i + 0];
+                uint32_t i1 = indices[i + 1];
+                uint32_t i2 = indices[i + 2];
+
+                const glm::vec3& p0 = vertices[i0].pos;
+                const glm::vec3& p1 = vertices[i1].pos;
+                const glm::vec3& p2 = vertices[i2].pos;
+
+                const glm::vec2& uv0 = vertices[i0].texCoord;
+                const glm::vec2& uv1 = vertices[i1].texCoord;
+                const glm::vec2& uv2 = vertices[i2].texCoord;
+
+                glm::vec3 e1 = p1 - p0;
+                glm::vec3 e2 = p2 - p0;
+
+                glm::vec2 dUV1 = uv1 - uv0;
+                glm::vec2 dUV2 = uv2 - uv0;
+
+                float denom = dUV1.x * dUV2.y - dUV1.y * dUV2.x;
+                if (fabsf(denom) < 1e-8f) {
+                    // Degenerate UVs: skip to avoid blowing up r
+                    continue;
+                }
+                float r = 1.0f / denom;
+
+                glm::vec3 t = (e1 * dUV2.y - e2 * dUV1.y) * r;
+                glm::vec3 b = (e2 * dUV1.x - e1 * dUV2.x) * r;
+
+                tan1[i0] += t; tan1[i1] += t; tan1[i2] += t;
+                tan2[i0] += b; tan2[i1] += b; tan2[i2] += b;
+            }
+
+            // Orthonormalize and write out (xyz = T, w = handedness)
+            for (size_t v = 0; v < vertices.size(); ++v)
+            {
+                const glm::vec3 n = glm::normalize(vertices[v].normal);
+                glm::vec3 t = tan1[v];
+
+                // If we never touched this vertex (e.g., degenerate UVs), pick a fallback
+                if (glm::length2(t) < 1e-12f) {
+                    // Build any orthonormal tangent to normal
+                    glm::vec3 ref = fabsf(n.z) < 0.999f ? glm::vec3(0,0,1) : glm::vec3(0,1,0);
+                    t = glm::normalize(glm::cross(ref, n));
+                    vertices[v].tan = glm::vec4(t, 1.0f);
+                    continue;
+                }
+
+                // Gram-Schmidt: make T orthogonal to N, then normalize
+                t = glm::normalize(t - n * glm::dot(n, t));
+
+                // Compute handedness using the accumulated bitangent
+                glm::vec3 bAccum = tan2[v];
+                float handedness = (glm::dot(glm::cross(n, t), bAccum) < 0.0f) ? -1.0f : 1.0f;
+
+                vertices[v].tan = glm::vec4(t, handedness);
+            }
+
 
             // GPU buffer creation
             GPUMesh gpu;
