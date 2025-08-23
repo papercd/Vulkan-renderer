@@ -180,6 +180,9 @@ SceneObject loadGLTFModelToSceneObject(const std::string &path, const FallbackTe
             if (primitive.material >= 0 && primitive.material < model.materials.size())
             {
                 const auto &mat = model.materials[primitive.material];
+                bool doubleSided = mat.doubleSided;
+                gpu.doubleSided = doubleSided;
+                
                 int texIndex = mat.pbrMetallicRoughness.baseColorTexture.index;
                 if (texIndex >= 0 && texIndex < materials.size())
                 {

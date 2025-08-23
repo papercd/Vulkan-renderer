@@ -9,4 +9,6 @@ struct GPUMesh
 
     uint32_t indexCount;
     Material *material = nullptr;
+
+    bool doubleSided = false;
 };

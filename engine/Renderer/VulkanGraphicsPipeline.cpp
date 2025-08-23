@@ -318,3 +318,19 @@ void VulkanGraphicsPipeline::createGraphicsPipelines(VkFormat colorFormat)
     vkDestroyShaderModule(device, vertShaderModule, nullptr);
     vkDestroyShaderModule(device, fragShaderModule, nullptr);
 }
+
+static VkPipelineColorBlendAttachmentState makeBlendAttachment(bool enableBlend) {
+    VkPipelineColorBlendAttachmentState a{};
+    a.colorWriteMask = VK_COLOR_COMPONENT_R_BIT|VK_COLOR_COMPONENT_G_BIT|
+                       VK_COLOR_COMPONENT_B_BIT|VK_COLOR_COMPONENT_A_BIT;
+    a.blendEnable = enableBlend ? VK_TRUE : VK_FALSE;
+    if (enableBlend) {
+        a.srcColorBlendFactor = VK_BLEND_FACTOR_SRC_ALPHA;
+        a.dstColorBlendFactor = VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA;
+        a.colorBlendOp        = VK_BLEND_OP_ADD;
+        a.srcAlphaBlendFactor = VK_BLEND_FACTOR_ONE;
+        a.dstAlphaBlendFactor = VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA;
+        a.alphaBlendOp        = VK_BLEND_OP_ADD;
+    }
+    return a;
+}

@@ -16,6 +16,11 @@ public:
     VkDescriptorPool getDescriptorPool() const { return descriptorPool; }
     VkDescriptorSetLayout getDescriptorSetLayout() const { return descriptorSetLayout; }
 
+    VkPipeline getPipelineOpaqueCullBack() const { return pipelineOpaqueCullBack; }
+    VkPipeline getPipelineOpaqueCullNone() const { return pipelineOpaqueCullNone; }
+    VkPipeline getPipelineBlendCullBack()  const { return pipelineBlendCullBack; }
+    VkPipeline getPipelineBlendCullNone()  const { return pipelineBlendCullNone; }
+
 private:
     VkDevice device;
     VkPipeline pipelineOpaque = VK_NULL_HANDLE;
@@ -26,8 +31,14 @@ private:
     VkDescriptorPool descriptorPool = VK_NULL_HANDLE;
     VkFormat depthFormat;
 
+    VkPipeline pipelineOpaqueCullBack = VK_NULL_HANDLE;
+    VkPipeline pipelineOpaqueCullNone = VK_NULL_HANDLE;
+    VkPipeline pipelineBlendCullBack  = VK_NULL_HANDLE;
+    VkPipeline pipelineBlendCullNone  = VK_NULL_HANDLE;
+    
+
     VkShaderModule loadShaderModule(const std::string &filepath);
 
     void createGraphicsPipelines(VkFormat colorFormat);
-    VkPipeline buildPipeline(VkFormat colorFormat, bool enableBlend);
+    VkPipeline buildPipelineVariant(VkFormat colorFormat, bool enableBlend, VkCullModeFlags cullMode);
 };
